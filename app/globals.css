@@ -22,5 +22,59 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Add this to your global CSS file */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.small-menu {
+    background: none;
+    border-bottom: 1px groove white;
+    box-shadow: 5px 5px 2px rgb(23 36 52 / 5%);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    border-radius: 10px;
+    color: #032303;
+    min-width: 15rem;
+    opacity: 0;
+    transform: translateY(30px);
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 50;
+    padding: 0;
+    border: none;
+    animation: slidedown 0.4s ease 1;
+    display: block;
+}
+@keyframes slidedown {
+    0% { transform: translateY(40px); opacity: 0; }
+    100% { transform: translateY(0px); opacity: 1; }
+}
+.dropdown:hover .small-menu {
+    opacity: 1;
+    transform: translateY(0px);
+    visibility: visible;
+    display: block !important;
+}
+.small-menu a {
+    display: block;
+    color: #032303;
+    background: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    border-bottom: 1px groove rgba(0, 0, 0, .1);
+    box-shadow: 5px 5px 2px #7eaf58;
+    transition: 0.5s ease;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+.small-menu a:hover {
+    color: #000 !important;
+    background: #7eaf58;
 }
