@@ -4,7 +4,7 @@ import AboutUs from "./components/AboutUs";
 
 export default function Home() {
   return (
-    <div className="bg-white w-screen h-auto">
+    <div className="bg-white w-auto h-auto">
       <Navbar/>
       <Hero/>
       <AboutUs/>
