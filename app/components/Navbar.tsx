@@ -41,7 +41,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="lg:hidden w-full h-20 z-0 bg-[#3b6907]">
+            <div className="lg:hidden w-screen fixed h-20 z-50 bg-[#3b6907]">
                 <div className="w-full h-full p-2 lg:px-10 items-center justify-between flex ">
                     <div className="w-15 h-15 cursor-pointer">
                         <Image
@@ -58,7 +58,7 @@ export default function Navbar() {
             </div>
 
             {isMobileMenuOpen && (
-                <div className="lg:hidden fixed h-screen w-screen inset-0 bg-black/40 z-10" onClick={() => setIsMobileMenuOpen(false)}>
+                <div className="lg:hidden fixed h-screen w-screen inset-0 bg-black/40 z-60" onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="absolute right-0 top-0 z-30 w-64 h-full bg-[#3b6907]" onClick={(e) => e.stopPropagation()}>
                 <div className="w-full h-full gap-y-5 flex flex-col p-2 items-center justify-start">
                     <div className="text-center text-sm font-bold border-0 border-amber-400">                        
@@ -216,9 +216,9 @@ export default function Navbar() {
 
         
         {/* Desktop Navbar */}
-        <div className="hidden lg:block w-screen h-25 bg-[#3b6907]">
+        <div className="hidden lg:block fixed z-50 w-full h-30 bg-[#3b6907]">
 
-            <div className="w-full h-full items-center justify-between 2xl:justify-center 2xl:gap-x-10 lg:px-5 xl:px-20 2xl:px-0 3xl:px-100 flex">
+            <div className="w-full h-full items-center justify-center gap-x-2 xl:gap-x-10 2xl:justify-center  flex">
                 <div className="items-center justify-center flex flex-col text-sm border-0 border-amber-500 cursor-pointer gap-y-1">
                         <Image
                             src="https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Flogo4.png?alt=media&token=f3c0fb24-3911-4151-a50d-c41656b1d2ea"
