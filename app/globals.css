@@ -90,3 +90,25 @@ body {
 .about-shadow:hover {
   transform: scale(1.05);
 }
+
+
+
+.health {
+  background: #e7e7e7;
+  color: #000;
+}
+
+.health:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fhealth.JPG?alt=media&token=e9c6594b-c448-4151-baa4-5499b80e36d9);
+   background-position:center;
+  background-size:cover;
+}
+
+.health:hover > .serv {
+  color: #fff;
+}
+
+.health:hover > .serv button{
+  color: #fff;
+  border: #fff;
+}

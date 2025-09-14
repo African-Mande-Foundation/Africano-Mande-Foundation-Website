@@ -46,7 +46,7 @@ export default function AboutUs () {
         </div>
         <div className="items-start justify-start  md:w-1/2 flex flex-col mt-10 gap-y-4">
 
-            <div className="text-xl font-medium text-[#3b6907] items-center justify-center flex gap-x-2"><div className="bg-[#3b6907] w-1 h-6"></div><p>About Us</p></div>
+            <div className="text-xl lg:text-2xl font-medium text-[#3b6907] items-center justify-center flex gap-x-2"><div className="bg-[#3b6907] w-1 h-6"></div><p>About Us</p></div>
             <div className="text-[#6f6f6f] text-sm md:text-base text-justify flex flex-col p-1 gap-y-2">
                 <p>The Africano Mande Foundation (AMF) was founded in 2018 by the family and friends of Africano Mande Gedima as a non-political, non-governmental and a legacy Foundation named after <Link href="#" className="text-[#0000ff] underline">Africano Mande Gedima</Link>, the first Governor of <Link href="#" className="text-[#0000ff] underline">Maridi State</Link>.</p>
                 <p>AMF was founded in order to champion Africano Mande’s philosophy, ideals and vision through the philanthropic and non-governmental tracks with the aim of “giving back” to the community opportunities for socioeconomic transformation for improved community wellbeing through capacity development for innovation, access to social services (education, health etc), community awareness and community development.</p>
