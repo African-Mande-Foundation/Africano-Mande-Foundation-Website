@@ -93,9 +93,9 @@ body {
 
 
 
-.health {
-  background: #e7e7e7;
-  color: #000;
+.inner {
+  background: #f5f5f5;
+  color: #6f6f6f;
 }
 
 .health:hover{
@@ -104,11 +104,57 @@ body {
   background-size:cover;
 }
 
-.health:hover > .serv {
+ .serv button{
+  border-bottom: 2px solid #000;
+ }
+
+.inner:hover > .serv {
+  color: #fff;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.inner:hover > .serv p{
   color: #fff;
 }
 
-.health:hover > .serv button{
+.inner:hover > .serv button{
   color: #fff;
-  border: #fff;
+  border-bottom: 2px solid #fff;
 }
+
+.education:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Feducation.jpg?alt=media&token=c12a278e-e687-436e-b6fe-0fb7982c4660);
+   background-position:center;
+  background-size:cover;
+}
+
+.production:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fproduction.jpg?alt=media&token=703b1f4b-987a-48ba-9b75-04ccf22f4419);
+   background-position:center;
+  background-size:cover;
+}
+
+.media:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fmedia.jpg?alt=media&token=53372370-7aa8-4659-a3a0-ec75f2ae25f4);
+   background-position:center;
+  background-size:cover;
+}
+
+.technical:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Ftechnical.jpg?alt=media&token=7646317c-4cbb-4b5b-a6da-45cab67b78ac);
+   background-position:center;
+  background-size:cover;
+}
+
+.volunteer:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fvolunteer.jpg?alt=media&token=a3086fda-ab1b-4e61-90cd-8d2c10e5ceaf);
+   background-position:center;
+  background-size:cover;
+}
+
+.corporate:hover{
+  background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fcorporate.jpg?alt=media&token=0087108c-1ed8-4999-b8f2-4a288351a835);
+   background-position:center;
+  background-size:cover;
+}
+
