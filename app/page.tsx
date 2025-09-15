@@ -1,7 +1,8 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import AboutUs from "./components/AboutUs";
-import Services from "./components/Services";
+import Navbar from "./sections/Navbar";
+import Hero from "./sections/Hero";
+import AboutUs from "./sections/AboutUs";
+import Services from "./sections/Services";
+import Donation from "./sections/Donation";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero/>
       <AboutUs/>
       <Services/>
+      <Donation/>
     </div>
   );
 }
