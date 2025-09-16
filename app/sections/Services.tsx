@@ -5,7 +5,7 @@ export default function Services(){
     return (
         <div className="bg-white w-full mt-4 items-center justify-center flex">
             <div className=" p-2 md:p-4 lg:px-5 max-w-screen-xl w-full relative flex flex-col gap-y-5 items-start justify-center h-auto">
-                <div className="md:text-xl lg:text-2xl font-medium text-[#3b6907] items-center justify-center flex gap-x-2"><div className="bg-[#3b6907] w-1 h-6"></div><p>Our Services</p></div>
+                <div className="text-xl lg:text-2xl font-medium text-[#3b6907] items-center justify-center flex gap-x-2"><div className="bg-[#3b6907] w-1 h-6"></div><p>Our Services</p></div>
                 
                 <div className="text-black font-bold text-2xl md:text-3xl lg:text-4xl">We foster sustainable development and well-being</div>
                 <div className="w-full xl:px-10 grid grid-cols-1 gap-3 md:gap-5 md:grid-cols-2 lg:grid-cols-3">
