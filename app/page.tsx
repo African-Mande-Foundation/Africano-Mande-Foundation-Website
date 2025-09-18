@@ -4,6 +4,7 @@ import AboutUs from "./sections/AboutUs";
 import Services from "./sections/Services";
 import Donation from "./sections/Donation";
 import Archives from "./sections/Archives";
+import Volunteer from "./sections/Volunteer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <AboutUs/>
       <Services/>
       <Donation/>
+      <Volunteer/>
       <Archives/>
     </div>
   );
