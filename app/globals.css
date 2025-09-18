@@ -158,3 +158,240 @@ body {
   background-size:cover;
 }
 
+
+.slider{
+    height: 70vh;
+    margin-top: 0px;
+    overflow: hidden;
+    position: relative;
+}
+.slider .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item .content{
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+
+
+.gradient-bg {
+  /* Linear: transparent at top, black at bottom */
+  background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+@media (min-width: 450px) {
+  .gradient-bg {
+    background: radial-gradient(circle at 80% 10%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  }
+}
+
+
+
+/* Thumbnail Section  */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .item{
+    width: 150px;
+    height: 100px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* nextPrevArrows Section  */
+.nextPrevArrows{
+    position: absolute;
+    top: 80%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+.nextPrevArrows button{
+    background-color: #032303;
+    border: none;
+    color: #fff;
+    transition: .5s;
+    cursor: pointer;
+}
+.nextPrevArrows button:hover{
+    background-color: #fff;
+    color: #000;
+    border: none;
+}
+
+@media screen and (max-width: 425px) {
+.nextPrevArrows{
+  top: 75%;
+}
+
+}
+/* Animation Part */
+.slider .list .item:nth-child(1){
+    z-index: 1;
+}
+
+
+/* animation text in first item */
+.slider .list .item:nth-child(1) .content .title,
+.slider .list .item:nth-child(1) .content .type,
+.slider .list .item:nth-child(1) .content .description,
+.slider .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.slider .list .item:nth-child(1) .content .title{
+    animation-delay: 0.4s !important;
+}
+.slider .list .item:nth-child(1) .content .type{
+    animation-delay: 0.6s !important;
+}
+.slider .list .item:nth-child(1) .content .description{
+    animation-delay: 0.8s !important;
+}
+.slider .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1s !important;
+}
+
+
+
+
+/* Animation for next button click */
+.slider.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage 0.7s cubic-bezier(0.4,0,0.2,1) 1 forwards;
+}
+
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.slider.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.slider.prev .list .item img{
+    z-index: 100;
+}
+
+
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+.slider.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+
+
+/* Animation for prev button click */
+.slider.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.slider.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.7s cubic-bezier(0.4,0,0.2,1) 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.slider.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.slider.next .nextPrevArrows button,
+.slider.prev .nextPrevArrows button{
+    pointer-events: none;
+}
+
+
+.slider.prev .list .item:nth-child(2) .content .title,
+.slider.prev .list .item:nth-child(2) .content .type,
+.slider.prev .list .item:nth-child(2) .content .description,
+.slider.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+

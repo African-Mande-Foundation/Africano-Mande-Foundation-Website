@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import AboutUs from "./sections/AboutUs";
 import Services from "./sections/Services";
 import Donation from "./sections/Donation";
+import Archives from "./sections/Archives";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutUs/>
       <Services/>
       <Donation/>
+      <Archives/>
     </div>
   );
 }
