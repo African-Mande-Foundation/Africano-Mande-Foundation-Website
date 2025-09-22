@@ -5,6 +5,8 @@ import Services from "./sections/Services";
 import Donation from "./sections/Donation";
 import Archives from "./sections/Archives";
 import Volunteer from "./sections/Volunteer";
+import Projects from "./sections/Projects";
+import Location from "./sections/Location"
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <Donation/>
       <Volunteer/>
       <Archives/>
+      <Projects/>
+      <Location/>
     </div>
   );
 }

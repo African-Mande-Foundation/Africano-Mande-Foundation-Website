@@ -1,4 +1,5 @@
 import Gallery from "../components/Gallery";
+import Video from "../components/Video";
 
 export default function Archives () {
     return(
@@ -13,6 +14,10 @@ export default function Archives () {
                         </div>
                     </div>
                     <Gallery/>
+                </div>
+                <div className="flex flex-col items-start justify-center w-full gap-y-5">
+                    <div className="text-black font-bold text-2xl md:text-3xl lg:text-4xl">Video</div>
+                    <Video/>
                 </div>
             </div>
 
