@@ -183,7 +183,7 @@ export default function Gallery() {
 			</div>
 
 			{/* Next/Prev Arrows */}
-			<div className="nextPrevArrows flex-col md:flex-row gap-y-4 md:gap-x-10 left-4 md:left-10 lg:left-30">
+			<div className="nextPrevArrows z-20 flex-col md:flex-row gap-y-4 md:gap-x-10 left-4 md:left-10 lg:left-30">
 				<button className="prev px-2 py-3 md:px-6 md:py-3 rounded-4xl gap-2 flex" onClick={() => moveSlider("prev")}>
 					<p>{"<"}</p> {"Previous"}
 				</button>
