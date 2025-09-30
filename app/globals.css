@@ -57,7 +57,7 @@ body {
     visibility: visible;
     display: block !important;
 }
-.small-menu a {
+.small-menu div {
     display: block;
     color: #032303;
     background: #fff;
@@ -71,7 +71,7 @@ body {
     margin-bottom: 5px;
     text-decoration: none;
 }
-.small-menu a:hover {
+.small-menu div:hover {
     color: #000 !important;
     background: #7eaf58;
 }

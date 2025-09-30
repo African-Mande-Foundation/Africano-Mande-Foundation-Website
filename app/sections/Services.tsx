@@ -11,7 +11,7 @@ export default function Services(){
                 <div className="w-full xl:px-10 grid grid-cols-1 gap-3 md:gap-5 md:grid-cols-2 lg:grid-cols-3">
 
                     {/* Health */}
-                    <div className="service health inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service health inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-1">
                         <div className="absolute serv w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faKitMedical}
@@ -27,7 +27,7 @@ export default function Services(){
                     </div>
 
                     {/* Education */}
-                    <div className="service education inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service education inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-2">
                         <div className="absolute serv inner w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faBookOpen}
@@ -44,7 +44,7 @@ export default function Services(){
 
 
                     {/* Production & Livelihoods services */}
-                    <div className="service production inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service production inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-3">
                         <div className="absolute serv w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faLeaf}
@@ -60,7 +60,7 @@ export default function Services(){
                     </div>
 
                     {/* Media and ICT Services */}
-                    <div className="service media inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service media inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-4">
                         <div className="absolute serv w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faLaptop}
@@ -76,7 +76,7 @@ export default function Services(){
                     </div>
 
                     {/* Technical Services */}
-                    <div className="service technical inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service technical inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-5">
                         <div className="absolute serv w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faScrewdriverWrench}
@@ -93,7 +93,7 @@ export default function Services(){
 
 
                     {/* Volunteer Services */}
-                    <div className="service volunteer inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service volunteer inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-6"> 
                         <div className="absolute serv w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faHandHoldingHeart}
@@ -110,7 +110,7 @@ export default function Services(){
 
 
                     {/* Corporate Services */}
-                    <div className="service corporate inner relative w-full h-[250px] md:h-[300px] rounded-4xl">
+                    <div className="service corporate inner relative w-full h-[250px] md:h-[300px] rounded-4xl" id="service-7">
                         <div className="absolute serv w-full p-3 h-full items-center justify-center flex flex-col gap-y-4 text-center rounded-4xl ">
                             <FontAwesomeIcon
                             icon={faChartColumn}

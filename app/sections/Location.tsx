@@ -10,7 +10,7 @@ export default function Location () {
                 </div>
             </div>
             <div>
-                    <div className="mapouter">
+                    <div className="mapouter" id="location">
                         <div className="gmap_canvas">
                             <iframe
                                 className="gmap_iframe"

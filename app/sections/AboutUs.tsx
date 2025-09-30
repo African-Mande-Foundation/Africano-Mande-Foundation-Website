@@ -31,7 +31,7 @@ export default function AboutUs () {
   };
 
   return (
-    <div className="bg-white w-full items-center justify-center flex">
+    <div className="bg-white w-full items-center justify-center flex" id="about-us">
     <div className=" p-2 md:p-4 lg:px-5 max-w-screen-xl w-full relative flex flex-col items-start justify-center  md:flex-row  h-auto">
         <div className="relative w-full md:w-1/2 h-auto">
             <div className=" absolute top-0 left-0 z-0 w-full">

@@ -82,9 +82,30 @@ export default function Navbar() {
                             </button>
                             {dropAbout && (
                                 <div className="w-full text-sm">
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Our Mission</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Our Vision</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Core Values</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("about-us");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Our Mission</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("about-us");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Our Vision</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("about-us");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Core Values</button>
                                     <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Governance and Management</button>
                                 </div>
                             )}
@@ -105,13 +126,62 @@ export default function Navbar() {
                             </button>
                             {dropService && (
                                 <div className="w-full text-sm">
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Health Services</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Education Services</button>
-                                    <button className="w-full py-3 px-2 flex items-center text-left justify-start border-b border-white text-white">Production and Livelihood Services</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Media and ICT Services</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Technical Services</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Volunteer Services</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Corporate Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-1");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Health Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-2");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Education Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center text-left justify-start border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-3");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Production and Livelihood Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-4");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Media and ICT Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-5");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Technical Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-6");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Volunteer Services</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("service-7");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Corporate Services</button>
                                 </div>
                             )}
                             
@@ -133,8 +203,22 @@ export default function Navbar() {
                                 <div className="w-full text-sm text-left">
                                     <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Project Documents</button>
                                     <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Historical Documents</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Project Pictorial</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Project Videos</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("gallery");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Project Pictorial</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("video");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Project Videos</button>
                                 </div>
                             )}
                             
@@ -151,17 +235,43 @@ export default function Navbar() {
                                     <span>Projects</span>
                                     <ChevronDown className={`w-4 h-4 transition-transform ${dropProject ? 'rotate-180' : ''}`} />
                                 </div>
-                                
                             </button>
                             {dropProject && (
                                 <div className="w-full text-sm">
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Maridi Organics</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Foundation FM</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Foundation Medical Center</button>
-                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">Maridi International University</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("organics");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Maridi Organics</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("fm");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Foundation FM</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("medical");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Foundation Medical Center</button>
+                                    <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white" onClick={() => {
+                                        const el = document.getElementById("university");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>Maridi International University</button>
                                 </div>
                             )}
-                            
                         </div>
 
 
@@ -186,8 +296,8 @@ export default function Navbar() {
                             
                         </div>
 
-                        {/* Project */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4" ref={dropProjectRef}>
+                        {/* Contact */}
+                        <div className="border w-full border-gray rounded-4xl py-3 px-4">
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm"
                                 
@@ -233,73 +343,219 @@ export default function Navbar() {
         {/* About Us Dropdown */}
         <div className=" items-center justify-center flex gap-x-1">
             <div className="dropdown ">
-            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out">
+            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out" onClick={() => {
+                                        const el = document.getElementById("about-us");
+                                        if (el) {
+                                            el.scrollIntoView({behavior: "smooth", block: "center"});
+                                        }
+                                        setDropAbout(false);
+                                        setIsMobileMenuOpen(false);
+                                    }}>
                 About Us
                 <ChevronDown className="ml-2 w-4 h-4" />
             </button>
             <div className="small-menu">
-                <Link href="#" className="">Our Mission</Link>
-                <Link href="#" className="">Our Vision</Link>
-                <Link href="#" className="">Core Values</Link>
-                <Link href="#" className="">Governance and Management</Link>
+                <div className="cursor-pointer" 
+                onClick={() => {
+                                const el = document.getElementById("about-us");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Our Mission</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("about-us");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth" , block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Our Vision</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("about-us");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Core Values</div>
+                <div className="cursor-pointer">Governance and Management</div>
             </div>
             </div>
 
             <div className="dropdown ">
-            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out">
+            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out" onClick={() => {
+                                const el = document.getElementById("service-1");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>
                 Services
                 <ChevronDown className="ml-2 w-4 h-4" />
             </button>
             <div className="small-menu">
-                <Link href="#" className="">Health Services</Link>
-                <Link href="#" className="">Education Services</Link>
-                <Link href="#" className="">Production and Livelihood Services</Link>
-                <Link href="#" className="">Media and ICT services</Link>
-                <Link href="#" className="">Technical Services</Link>
-                <Link href="#" className="">Volunteer Services</Link>
-                <Link href="#" className="">Corporate Services</Link>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-1");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Health Services</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-2");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Education Services</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-3");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Production and Livelihood Services</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-4");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Media and ICT services</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-5");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Technical Services</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-6");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Volunteer Services</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("service-7");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Corporate Services</div>
             </div>
             </div>
 
 
             <div className="dropdown ">
-            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out">
+            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out" onClick={() => {
+                                const el = document.getElementById("gallery");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>
                 Archives
                 <ChevronDown className="ml-2 w-4 h-4" />
             </button>
             <div className="small-menu">
-                <Link href="#" className="">Project documents</Link>
-                <Link href="#" className="">Historic documents</Link>
-                <Link href="#" className="">Project pictorials</Link>
-                <Link href="#" className="">Project videos</Link>
+                <div className="cursor-pointer">Project documents</div>
+                <div className="cursor-pointer">Historic documents</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("gallery");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Project pictorials</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("video");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Project videos</div>
             </div>
             </div>
 
 
             <div className="dropdown ">
-            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out">
+            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out" onClick={() => {
+                                const el = document.getElementById("projects");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>
                 Projects
                 <ChevronDown className="ml-2 w-4 h-4" />
             </button>
             <div className="small-menu">
-                <Link href="#" className="">Maridi Organics</Link>
-                <Link href="#" className="">Foundation FM</Link>
-                <Link href="#" className="">Foundation Medical Center</Link>
-                <Link href="#" className="">Maridi International University</Link>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("organics");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Maridi Organics</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("fm");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Foundation FM</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("medical");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Foundation Medical Center</div>
+                <div className="cursor-pointer" onClick={() => {
+                                const el = document.getElementById("university");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>Maridi International University</div>
             </div>
             </div>
 
 
             <div className="dropdown ">
-            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out">
+            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out" onClick={() => {
+                                const el = document.getElementById("location");
+                                if (el) {
+                                    el.scrollIntoView({behavior: "smooth", block: "center"});
+                                }
+                                setDropAbout(false);
+                                setIsMobileMenuOpen(false);
+                                }}>
                 Location
                 <ChevronDown className="ml-2 w-4 h-4" />
             </button>
             <div className="small-menu">
-                <Link href="#" className="">Google Map</Link>
-                <Link href="#" className="">Maridi State Link</Link>
-                <Link href="#" className="">Core Values</Link>
-                <Link href="#" className="">Governance and Management</Link>
+                <div className="cursor-pointer">Google Map</div>
+                <div className="cursor-pointer">Maridi State Link</div>
             </div>
             </div>
 
