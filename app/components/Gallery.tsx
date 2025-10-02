@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 "use client";
 import { useRef } from "react";
 
@@ -164,6 +166,7 @@ export default function Gallery() {
 			<div ref={listRef} className="list">
 				{galleryData.map((img) => (
 					<div key={img.url} className="item">
+						
 						<img src={img.url} alt={img.title} />
 						<div className="content absolute w-full md:w-1/2 lg:w-1/3 gap-2 p-2 top-0 gradient-bg md:rounded-bl-full  items-center justify-center md:right-0 md:justify-start flex flex-col">
 							<div className="title font-bold text-2xl md:text-3xl lg:text-4xl">{img.title}</div>
