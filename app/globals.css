@@ -158,6 +158,52 @@ body {
   background-size:cover;
 }
 
+.health_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fhealth.JPG?alt=media&token=e9c6594b-c448-4151-baa4-5499b80e36d9);
+    background-position: center;
+    background-size: cover;
+}
+
+.education_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Feducation.jpg?alt=media&token=c12a278e-e687-436e-b6fe-0fb7982c4660);
+    background-position: center;
+    background-size: cover;
+}
+
+.production_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fproduction.jpg?alt=media&token=703b1f4b-987a-48ba-9b75-04ccf22f4419);
+    background-position: center;
+    background-size: cover;
+}
+
+.media_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fmedia.jpg?alt=media&token=53372370-7aa8-4659-a3a0-ec75f2ae25f4);
+    background-position: center;
+    background-size: cover;
+}
+
+.technical_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Ftechnical.jpg?alt=media&token=7646317c-4cbb-4b5b-a6da-45cab67b78ac);
+    background-position: center;
+    background-size: cover;
+}
+
+.volunteer_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fvolunteer.jpg?alt=media&token=a3086fda-ab1b-4e61-90cd-8d2c10e5ceaf);
+    background-position: center;
+    background-size: cover;
+}
+
+.corporate_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fcorporate.jpg?alt=media&token=0087108c-1ed8-4999-b8f2-4a288351a835);
+    background-position: center;
+    background-size: cover;
+}
+
+.service-list{
+    list-style: disc;
+}
+
 
 .slider{
     height: 70vh;
@@ -397,6 +443,35 @@ body {
 
 .project-card{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.maridi_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fsf3.jpg?alt=media&token=25fd57cb-1a5c-4fc9-8c98-c286689cbcf7);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.fm_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fsf2.jpg?alt=media&token=33bb84a2-0fd3-4869-8dc1-f17a6db89aa8);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.medical_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fsf1.jpg?alt=media&token=f71654ee-02a6-4889-8c94-f64066e55ce5);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.university_img{
+    background: url(https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/AMF%20Website%20Media%2Fsf4.jpeg?alt=media&token=965b3076-caa6-46e6-b4c9-abc2f80d2df2);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .mapouter{position:relative;text-align:right;width:100%;height:400px;}
