@@ -365,7 +365,7 @@ export default function Services() {
                     <div className="grid grid-cols-1 md:grid-cols-2 p-2 gap-y-5 gap-x-5 lg:p-5">
                         <div className="corporate_img w-full h-[200px] md:h-[300px] rounded-lg"></div>
                         <p className="text-[#6f6f6f] text-sm md:text-base text-justify flex flex-col p-1 gap-y-2 w-full h-[300px] overflow-y-scroll">
-                            This performance area involves offering corporate services which not only builds the operational capacities of AMF to deliver its intended services to the communities but it also promotes AMF’s vision and values for which it stands
+                            This performance area involves offering corporate services which not only builds the operational capacities of AMF to deliver its intended services to the communities but it also promotes AMF’s vision and values for which it stands.
                         </p>
                     </div>
                     <div className="w-full h-7 border-t border-gray-300"></div>

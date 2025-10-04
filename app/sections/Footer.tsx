@@ -10,9 +10,14 @@ import {
   faTiktok,
   faWhatsapp     
 } from "@fortawesome/free-brands-svg-icons";
-import {faPhone, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons"
+import {faPhone, faClock, faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 
-export default function Footer () {
+
+interface DonationProps {
+  setShowDonateModal: (show: boolean) => void;
+}
+
+export default function Footer ({setShowDonateModal }: DonationProps) {
     return(
         <div className="bg-[#032303] w-full items-center pt-20 justify-center flex flex-col">
             <div className=" p-2 md:p-4 lg:px-5 max-w-screen-xl w-full relative flex flex-col items-start justify-center h-auto">
@@ -25,7 +30,7 @@ export default function Footer () {
                             <Link href="" className="text-white underline ">Maridi State Map</Link>
                         </div>
                         <div>
-                            <button className="px-5 py-3 bg-[#005e84] text-white items-center justify-center flex gap-2 md:gap-4 text-sm rounded-md cursor-point hover:bg-[#fff] hover:text-[#005e84] transition duration-300 cursor-pointer">
+                            <button className="px-5 py-3 bg-[#005e84] text-white items-center justify-center flex gap-2 md:gap-4 text-sm rounded-md cursor-point hover:bg-[#fff] hover:text-[#005e84] transition duration-300 cursor-pointer" onClick={() => setShowDonateModal(true)}>
                                 <span>Donate Now</span> <Heart className="w-4 md:w-5"/>
                             </button>
                         </div>
