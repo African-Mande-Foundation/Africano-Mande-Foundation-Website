@@ -12,10 +12,12 @@ import Footer from "./sections/Footer";
 import { useState } from "react";
 
 export default function Home() {
-  const [showDonateModal, setShowDonateModal] = useState(true);
+  const [showDonateModal, setShowDonateModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   return (
     <div className="bg-white w-auto h-auto">
-      <Navbar/>
+      <Navbar showContactModal={showContactModal}
+        setShowContactModal={setShowContactModal}/>
       <Hero setShowDonateModal={setShowDonateModal}/>
       <AboutUs/>
       <Services/>
