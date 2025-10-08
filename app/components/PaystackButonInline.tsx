@@ -20,7 +20,7 @@ type Props = {
   amount: number;
   email: string;
   label?: string;
-  currency?: "USD";
+  currency?: "KEN";
   onVerified?: (payload: {
     reference: string;
     amount: number;
@@ -33,7 +33,7 @@ export default function PaystackButtonInline({
   amount,
   email,
   label,
-  currency = "USD",
+  currency = "KEN",
   onVerified,
 }: Props) {
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);

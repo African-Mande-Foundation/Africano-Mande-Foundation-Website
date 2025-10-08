@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     if (data?.status && data?.data?.status === "success") {
       const amount = (data.data.amount ?? 0) / 100;
-      const currency = data.data.currency ?? "USD";
+      const currency = data.data.currency ?? "KEN";
 
 
       return NextResponse.json({

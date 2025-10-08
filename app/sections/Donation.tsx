@@ -78,7 +78,7 @@ const canDonateCustom = emailValid && typeof customAmount === "number" && custom
                                     amount={amt}
                                     email={email}
                                     label={`Donate $${amt}`}
-                                    currency="USD"
+                                    currency="KEN"
                                     onVerified={({ reference }) => {
                                     
                                     console.log("Verified ref:", reference);
@@ -120,7 +120,7 @@ const canDonateCustom = emailValid && typeof customAmount === "number" && custom
                                     amount={Number(customAmount)}
                                     email={email}
                                     label="Donate"
-                                    currency="USD"
+                                    currency="KEN"
                                     onVerified={({ reference }) => {
                                     console.log("Verified ref:", reference);
                                     }}
