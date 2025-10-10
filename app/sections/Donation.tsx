@@ -40,7 +40,7 @@ const canDonateCustom = emailValid && typeof customAmount === "number" && custom
                             close
                         </button>
                     </div>
-                    <div className="p-2 lg:p-5 overflow-y-scroll max-h-[600px] lg:max-h-[700px] xl:max-h-[800px] ">
+                    <div className="text-white p-2 lg:p-5 overflow-y-scroll max-h-[600px] lg:max-h-[500px] xl:max-h-[500px] ">
                         <h1 className="text-4xl font-bold text-[#032303] mb-8">Support Our Mission</h1>
 
                         {/* Capture donor email once for all buttons */}

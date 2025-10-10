@@ -66,7 +66,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                 <div className="lg:hidden fixed h-screen w-screen inset-0 bg-black/40 z-60" onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="absolute right-0 top-0 z-30 w-64 h-full bg-[#3b6907]" onClick={(e) => e.stopPropagation()}>
                 <div className="w-full h-full gap-y-5 flex flex-col p-2 items-center justify-start">
-                    <div className="text-center text-sm font-bold border-0 border-amber-400">                        
+                    <div className="text-white text-center text-sm font-bold border-0 border-amber-400">                        
                             <span>AFRICANO MANDE FOUNDATION</span>
                         </div>
 
@@ -342,7 +342,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                             height={200}
                             className="w-18"
                         />
-                        <span className="text-center text-xs">AFRICANO MANDE FOUNDATION</span>
+                        <span className="text-white text-center text-xs">AFRICANO MANDE FOUNDATION</span>
                     </div>
 
         {/* About Us Dropdown */}

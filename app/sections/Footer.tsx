@@ -19,7 +19,7 @@ interface DonationProps {
 
 export default function Footer ({setShowDonateModal }: DonationProps) {
     return(
-        <div className="bg-[#032303] w-full items-center pt-20 justify-center flex flex-col">
+        <div className="text-white bg-[#032303] w-full items-center pt-20 justify-center flex flex-col">
             <div className=" p-2 md:p-4 lg:px-5 max-w-screen-xl w-full relative flex flex-col items-start justify-center h-auto">
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-15">
                     <div className="w-full items-start justify-start flex flex-col gap-y-6">
@@ -94,7 +94,7 @@ export default function Footer ({setShowDonateModal }: DonationProps) {
                             icon={faPhone}
                             className="w-4 mr-1"
                             style={{ fontSize: "1.0rem" }}
-                            /></Link>Greater Maridi</p>
+                            /></Link>+211 92 436 0010</p>
                         </div>
                         <div className="text-xl lg:text-2xl font-bold text-white items-center justify-center flex gap-x-2 mb-2"><div className="bg-[#7eaf58] w-[2px] h-6"></div><p>Email</p></div>
                         <div className="items-start justify-start flex flex-col gap-y-2 text-xs">
