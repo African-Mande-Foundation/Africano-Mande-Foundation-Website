@@ -74,7 +74,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                     <div className="w-full h-200 items-center justify-start flex flex-col gap-y-2 border-0 border-amber-500 overflow-y-scroll">
 
                         {/* About Us */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4" ref={dropAboutRef}>
+                        <div className="border w-full border-white rounded-4xl py-3 px-4" ref={dropAboutRef}>
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm"
                                 onClick={() => setDropAbout(!dropAbout)}
@@ -118,7 +118,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                         </div>
 
                         {/* Services */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4" ref={dropServiceRef}>
+                        <div className="border w-full border-white rounded-4xl py-3 px-4" ref={dropServiceRef}>
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm text-left"
                                 onClick={() => setDropService(!dropService)}
@@ -193,7 +193,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                         </div>
 
                         {/* Archive */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4" ref={dropArchiveRef}>
+                        <div className="border w-full border-white rounded-4xl py-3 px-4" ref={dropArchiveRef}>
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm"
                                 onClick={() => setDropArchive(!dropArchive)}
@@ -231,7 +231,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
 
 
                         {/* Project */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4" ref={dropProjectRef}>
+                        <div className="border w-full border-white rounded-4xl py-3 px-4" ref={dropProjectRef}>
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm"
                                 onClick={() => setDropProject(!dropProject)}
@@ -281,7 +281,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
 
 
                         {/* Location */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4" ref={dropLocationRef}>
+                        <div className="border w-full border-white rounded-4xl py-3 px-4" ref={dropLocationRef}>
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm"
                                 onClick={() => setDropLocation(!dropLocation)}
@@ -302,7 +302,7 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                         </div>
 
                         {/* Contact */}
-                        <div className="border w-full border-gray rounded-4xl py-3 px-4">
+                        <div className="border w-full border-white rounded-4xl py-3 px-4">
                             <button
                                 className="items-center flex-col justify-between w-full text-white text-sm" onClick={() => {setShowContactModal(true)}}
                                 
@@ -316,8 +316,8 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
                         
 
                         <div className="w-full h-auto mt-2 items-center justify-center flex flex-col text-sm text-center font-bold gap-y-2">
-                            <Link href="" className="w-full py-3 px-4 rounded-4xl bg-[#fff] text-[#005e84]">Become a Member</Link>
-                            <Link href="" className="w-full py-3 px-4 rounded-4xl bg-[#005e84] text-[#fff]">Login</Link>
+                            <Link href="/register" className="w-full py-3 px-4 rounded-4xl bg-[#fff] text-[#005e84]">Become a Member</Link>
+                            <Link href="/login" className="w-full py-3 px-4 rounded-4xl bg-[#005e84] text-[#fff]">Login</Link>
 
                         </div>
                     </div>
