@@ -10,7 +10,7 @@ export default function Login () {
     return(
         <div className="relative ">
             <LoginRegisterBg/>
-            <div className="w-screen h-screen absolute border flex items-center justify-center border-amber-500 z-10">
+            <div className="w-screen h-screen absolute border-0 flex items-center justify-center border-amber-500 z-10">
                 <div className="p-2 md:p-4 lg:px-5 max-w-screen-xl w-full flex items-center justify-center h-full">
                     <div className="w-full items-center justify-center flex flex-col">
                         <p className="text-black text-4xl text-center text-shadow-2xl ">LOG IN</p>

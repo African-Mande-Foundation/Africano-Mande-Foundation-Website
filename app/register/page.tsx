@@ -15,6 +15,19 @@ export default function Register () {
                     <div className="w-full items-center justify-center flex flex-col">
                         <p className="text-black text-4xl text-center text-shadow-2xl ">BECOME A MEMBER</p>
                         <form className="p-2 w-full md:w-[400px] gap-y-2 flex flex-col mt-10">
+
+                            <input 
+                                type="text"
+                                placeholder="Enter your first name"
+                                className="p-2 w-full h-12 rounded-2xl bg-[#F5F5F5] text-[#032303] _shadow font-medium focus:outline-none"
+                            />
+
+                            <input 
+                                type="text"
+                                placeholder="Enter your last name"
+                                className="p-2 w-full h-12 rounded-2xl bg-[#F5F5F5] text-[#032303] _shadow font-medium focus:outline-none"
+                            />
+
                             <input 
                                 type="email"
                                 placeholder="Enter your email address"

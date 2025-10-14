@@ -580,12 +580,12 @@ export default function Navbar({ showContactModal, setShowContactModal }: Contac
 
         </div>
         <div className=" items-center justify-center flex gap-x-2">
-            <button className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-[#fff] bg-[#fff] text-[#005e84] cursor-pointer hover:bg-[#005e84] hover:text-[#fff] hover:border-[#005e84] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out">
+            <Link href="/register" className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-[#fff] bg-[#fff] text-[#005e84] cursor-pointer hover:bg-[#005e84] hover:text-[#fff] hover:border-[#005e84] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out">
                     Become a Member
-                </button>
-            <button className="flex items-center xl:px-6 xl:py-2 px-3 py-2 rounded-4xl border border-[#005e84] bg-[#005e84] text-white cursor-pointer hover:bg-[#fff] hover:text-[#005e84] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out">
+                </Link>
+            <Link href="/login" className="flex items-center xl:px-6 xl:py-2 px-3 py-2 rounded-4xl border border-[#005e84] bg-[#005e84] text-white cursor-pointer hover:bg-[#fff] hover:text-[#005e84] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out">
                     Log In
-                </button>
+                </Link>
 
         </div>
         
