@@ -15,8 +15,7 @@ export async function POST(req: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${process.env.STRAPI_TOKEN}`,
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
         data: {

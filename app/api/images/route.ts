@@ -60,8 +60,7 @@ export async function GET() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${process.env.STRAPI_TOKEN}`,
+        'Accept': 'application/json'
       },
       cache: 'no-store',
     });
