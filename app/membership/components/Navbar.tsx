@@ -34,7 +34,7 @@ export default function Navbar({setIsMobileMenuOpen, user}: navbarProps) {
                 </div>
             </div>
 
-            <div className="hidden md:flex w-full items-center justify-between h-auto p-2 px-4 bg-white">
+            <div className="hidden md:flex w-full items-center justify-between h-auto p-2 px-4 bg-white ">
                 <div className="flex items-center justify-center gap-x-2 h-full" >
                     
                     <p className="text-[#032303] text-base font-bold">Hello, {user.firstName}</p>

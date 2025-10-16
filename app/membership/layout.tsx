@@ -14,7 +14,7 @@ interface MembershipLayoutProps {
 }
 
 export default function MembershipLayout({ children }: MembershipLayoutProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Dummy user data
   const user: User = {
@@ -24,7 +24,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
   };
 
   return (
-    <div className="w-screen h-auto flex bg-gradient-to-b from-[#E6FFF4] from-60% to-white">
+    <div className="w-screen h-auto flex items-start justify-between bg-gradient-to-b from-[#E6FFF4] from-60% to-white">
         <Sidebar 
           isMobileMenuOpen={isMobileMenuOpen} 
           setIsMobileMenuOpen={setIsMobileMenuOpen}
@@ -43,7 +43,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
        
         
         {isMobileMenuOpen ? (
-          <div className='w-3/4 lg:w-4/5 xl:w-6/7 hidden md:block'>
+          <div className='w-3/4 lg:w-4/5 xl:w-6/7 hidden md:block transition-all duration-700 ease-in-out'>
             <Navbar
               setIsMobileMenuOpen={setIsMobileMenuOpen}
               user={user}
@@ -53,7 +53,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
             </div>
         </div>
         ) :
-         <div className='w-full hidden md:block'>
+         <div className='w-full hidden md:block transition-all duration-700 ease-in-out'>
             <Navbar 
               setIsMobileMenuOpen={setIsMobileMenuOpen}
               user={user}

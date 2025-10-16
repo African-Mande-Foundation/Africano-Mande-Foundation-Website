@@ -27,8 +27,8 @@ interface sidebarProps {
 
 export default function Sidebar({isMobileMenuOpen, setIsMobileMenuOpen, user}: sidebarProps) {
     const navItems = [
-        { icon: LayoutDashboard, label: "Dashboard", href: "/membership/dashboard" },
-        { icon: ListChecks, label: "Tasks", href: "/membership/tasks" },
+        { icon: LayoutDashboard, label: "Dashboard", href: "/membership" },
+        { icon: ListChecks, label: "Activities", href: "/membership/activities" },
         { icon: Newspaper, label: "News", href: "/membership/news" },
         { icon: FolderKanban, label: "Projects", href: "/membership/projects" },
         { icon: HeartHandshake, label: "Donations", href: "/membership/donations" },

@@ -1,4 +1,4 @@
-export default function Membership () {
+export default function Donations () {
     return(
         <div>
             
