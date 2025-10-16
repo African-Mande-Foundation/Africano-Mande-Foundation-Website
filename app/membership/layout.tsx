@@ -24,13 +24,13 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
   };
 
   return (
-    <div className="w-screen h-auto bg-white">
+    <div className="w-screen h-auto flex bg-gradient-to-b from-[#E6FFF4] from-60% to-white">
         <Sidebar 
           isMobileMenuOpen={isMobileMenuOpen} 
           setIsMobileMenuOpen={setIsMobileMenuOpen}
           user={user}
         />
-        <div className='w-full'>
+        <div className='w-full md:hidden '>
             <Navbar 
               setIsMobileMenuOpen={setIsMobileMenuOpen}
               user={user}
@@ -39,6 +39,32 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
                 {children}
             </div>
         </div>
+
+       
+        
+        {isMobileMenuOpen ? (
+          <div className='w-3/4 lg:w-4/5 xl:w-6/7 hidden md:block'>
+            <Navbar
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              user={user}
+            />
+             <div className="">
+                {children}
+            </div>
+        </div>
+        ) :
+         <div className='w-full hidden md:block'>
+            <Navbar 
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              user={user}
+            />
+             <div className="  ">
+                {children}
+            </div>
+        </div>
+        
+        }
+        
     </div>
   );
 }
