@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { firstName,lastName, email, password } = await req.json();
+  const { firstName, lastName, email, password } = await req.json();
+
   const username = `${firstName}_${lastName}`;
-  if (!username || !email || !password) {
+
+  if (!username || !email || !password || !firstName || !lastName) {
     return NextResponse.json(
-      { message: "Username, email, and password are required" },
+      { message: "firstName,lastName, email and password are required" },
       { status: 400 },
     );
   }
@@ -22,7 +24,14 @@ export async function POST(req: NextRequest) {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password, username}),
+        body: JSON.stringify({
+          email,
+          password,
+          username,
+          photoUrl,
+          firstName,
+          lastName,
+        }),
       },
     );
 
@@ -33,27 +42,6 @@ export async function POST(req: NextRequest) {
         { message: data.error?.message || "Registration failed" },
         { status: strapiRes.status },
       );
-    }
-  console.log(data)
-    const updateRes = await fetch(`${process.env.STRAPI_URL}/api/users/${data.user.id}`, {
-    method: "PUT",
-    headers: {
-        Authorization: `Bearer ${data.jwt}`,
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-        firstName,
-        lastName,
-        photoUrl,
-    }),
-    });
-
-    if (!updateRes.ok) {
-    const errorData = await updateRes.json();
-    return NextResponse.json(
-        { message: errorData.error?.message || "User update failed" },
-        { status: updateRes.status },
-    );
     }
 
     return NextResponse.json({ user: data.user }, { status: 200 });

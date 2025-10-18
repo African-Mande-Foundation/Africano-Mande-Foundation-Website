@@ -4,7 +4,7 @@ export async function POST(req: NextRequest) {
   try {
     const { name, email, contact, message } = await req.json();
 
-    console.log('Received data:', { name, email, contact, message });
+    
 
     if (!name || !email || !message) {
       return NextResponse.json({ message: 'All fields are required.' }, { status: 400 });
@@ -27,10 +27,10 @@ export async function POST(req: NextRequest) {
       }),
     });
 
-    console.log('Strapi response status:', strapiRes.status);
+   
     
     const data = await strapiRes.json();
-    console.log('Strapi response data:', data);
+    
 
     if (!strapiRes.ok) {
       const errorMessage = data.error?.message || 'Failed to send message.';
