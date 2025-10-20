@@ -25,7 +25,7 @@ export default function Login() {
   const callbackUrl =
     rawCallbackUrl && !rawCallbackUrl.includes("/register")
       ? rawCallbackUrl
-      : "/";
+      : "/membership";
 
   // Redirect if already authenticated
   useEffect(() => {

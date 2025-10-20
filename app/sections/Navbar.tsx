@@ -975,13 +975,6 @@ export default function Navbar({
 
                 {/* Profile & Logout */}
                 <div className="flex items-center gap-3">
-                  <Image
-                    src={session.user?.image}
-                    alt="Profile"
-                    width={40}
-                    height={40}
-                    className="rounded-full object-cover"
-                  />
 
                   <button
                     onClick={handleLogout}
