@@ -12,7 +12,7 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  photoUrl: string | null;
+  photoUrl: string;
 }
 
 export interface ParentComment {

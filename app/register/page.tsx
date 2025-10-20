@@ -3,7 +3,7 @@ import LoginRegisterBg from "../components/LoginRegisterBg";
 import Image from "next/image";
 import {Eye, EyeOff} from 'lucide-react';
 import { useState , useEffect} from "react";
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter} from 'next/navigation';
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
@@ -21,13 +21,15 @@ export default function Register () {
   const router = useRouter();
   const { status } = useSession();
 
-  const callbackUrl = "/";
+  const callbackUrl = "/login";
+
+  const googlecallbackUrl = "/login";
 
   // Redirect if already logged in
   useEffect(() => {
     if (status === "authenticated") {
       setIsLoading(true);
-      router.replace(callbackUrl);
+      router.replace(googlecallbackUrl);
     }
   }, [status, router]);
 

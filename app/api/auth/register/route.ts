@@ -16,6 +16,8 @@ export async function POST(req: NextRequest) {
     "https://firebasestorage.googleapis.com/v0/b/foundation-fm.firebasestorage.app/o/Foundation_FM_Media%2Fuser.png?alt=media&token=23522495-7f95-41c4-a0df-d53d2584741e";
 
   try {
+    console.log("Attempting to register user:", { username, email, firstName, lastName });
+
     const strapiRes = await fetch(
       `${process.env.STRAPI_URL}/api/auth/local/register`,
       {
@@ -35,7 +37,9 @@ export async function POST(req: NextRequest) {
       },
     );
 
-    const data = await strapiRes.json();
+    const data = await strapiRes.json(); // Keep only this line
+    console.log("Strapi response status:", strapiRes.status);
+    console.log("Strapi response data:", data);
 
     if (!strapiRes.ok) {
       return NextResponse.json(

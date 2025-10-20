@@ -19,23 +19,61 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      if (status === "authenticated") {
+      if (status === "authenticated" && session) {
         setIsFetchingUser(true);
         try {
           const res = await fetch("/api/user");
           if (!res.ok) throw new Error("Failed to fetch user");
           const data = await res.json();
 
+          const firstName = data.firstName || data.username?.split(" ")[0] || session.user?.name?.split(" ")[0] || "";
+          const lastName = data.lastName || session.user?.name?.split(" ")[1] || "";
+          const userImage = session.user?.image;
+
           setUser({
-            firstName: data.firstName || data.username?.split(" ")[0] || "",
-            lastName: data.lastName || "",
-            username: data.username,
+            id: data.id || 0, // Add missing properties
+            documentId: data.documentId || "",
+            provider: data.provider || "google",
+            confirmed: data.confirmed || true,
+            blocked: data.blocked || false,
+            createdAt: data.createdAt || new Date().toISOString(),
+            updatedAt: data.updatedAt || new Date().toISOString(),
+            publishedAt: data.publishedAt || new Date().toISOString(),
+            firstName,
+            lastName,
+            username: data.username || session.user?.name || "",
             status: "member",
-            email: data.email,
-            photoUrl: data.photoUrl,
+            email: data.email || session.user?.email || "",
+            photoUrl: userImage && userImage.trim() !== "" 
+              ? userImage 
+              : `https://ui-avatars.com/api/?name=${encodeURIComponent(firstName + ' ' + lastName)}&background=04663A&color=ffffff&size=128`
           });
         } catch (error) {
           console.error("Error fetching user:", error);
+          
+          const firstName = session.user?.name?.split(" ")[0] || "";
+          const lastName = session.user?.name?.split(" ")[1] || "";
+          const userImage = session.user?.image;
+          
+          // Fallback to session data if API fails
+          setUser({
+            id: 0, // Default values for missing properties
+            documentId: "",
+            provider: "google",
+            confirmed: true,
+            blocked: false,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            publishedAt: new Date().toISOString(),
+            firstName,
+            lastName,
+            username: session.user?.name || "",
+            status: "member",
+            email: session.user?.email || "",
+            photoUrl: userImage && userImage.trim() !== "" 
+              ? userImage 
+              : `https://ui-avatars.com/api/?name=${encodeURIComponent(firstName + ' ' + lastName)}&background=04663A&color=ffffff&size=128`
+          });
         } finally {
           setIsFetchingUser(false);
         }
@@ -43,12 +81,20 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
     };
 
     fetchUser();
-  }, [status]);
+  }, [status, session]); // Add session to dependencies
 
   if (status === "loading" || isFetchingUser) {
     return (
       <div className="flex items-center justify-center h-screen w-screen bg-white">
         <LoadingBar className="w-24 h-24" />
+      </div>
+    );
+  }
+
+  if (status === "unauthenticated") {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen text-gray-600">
+        <p className="text-lg font-semibold">Please sign in to access this page.</p>
       </div>
     );
   }

@@ -22,7 +22,6 @@ export default function Navbar({
   const [dropProject, setDropProject] = useState(false);
   const [dropLocation, setDropLocation] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showLogout, setShowLogout] = useState(false);
 
   const dropAboutRef = useRef<HTMLDivElement>(null);
   const dropServiceRef = useRef<HTMLDivElement>(null);
@@ -66,11 +65,6 @@ export default function Navbar({
         !dropLocationRef.current.contains(event.target as Node)
       )
         setDropLocation(false);
-      if (
-        profileRef.current &&
-        !profileRef.current.contains(event.target as Node)
-      )
-        setShowLogout(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -973,8 +967,10 @@ export default function Navbar({
                   Go to Dashboard
                 </Link>
 
+                
+
                 {/* Profile & Logout */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center gap-3">
 
                   <button
                     onClick={handleLogout}
@@ -983,6 +979,16 @@ export default function Navbar({
                   >
                     <LogOut size={20} />
                   </button>
+
+                  {session.user?.image && (
+                        <Image
+                          src={session.user.image}
+                          alt="Profile"
+                          width={40}
+                          height={40}
+                          className="rounded-full"
+                        />
+                      )}
                 </div>
               </div>
             ) : (
