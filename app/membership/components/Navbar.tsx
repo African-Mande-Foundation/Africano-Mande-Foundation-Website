@@ -3,8 +3,6 @@ import { LogOut, Menu } from "lucide-react";
 import { signOut } from "next-auth/react";
 interface User {
   firstName: string;
-  lastName: string;
-  status: "member" | "volunteer";
 }
 
 interface navbarProps {
