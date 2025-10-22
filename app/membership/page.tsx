@@ -1,6 +1,6 @@
 export default function Membership () {
     return(
-        <div>
+        <div className="w-full h-full overflow-y-scroll">
             
         </div>
     )
