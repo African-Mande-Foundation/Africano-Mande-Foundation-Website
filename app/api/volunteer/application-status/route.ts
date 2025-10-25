@@ -33,10 +33,11 @@ export async function GET() {
     }
 
     const userId = usersData[0].id;
+    console.log('Looking for applications for user ID:', userId);
 
-    // Check for existing application
+    // Check for existing application - using correct field name 'users_permissions_user'
     const applicationResponse = await fetch(
-      `${process.env.STRAPI_URL}/api/volunteer-applications?filters[users_permissions_user][id][$eq]=${userId}&populate=*`,
+      `${process.env.STRAPI_URL}/api/volunteer-applications?filters[users_permissions_user][id][$eq]=${userId}&populate=users_permissions_user`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
@@ -45,20 +46,27 @@ export async function GET() {
     );
 
     const applicationData = await applicationResponse.json();
+    console.log('Application response:', JSON.stringify(applicationData, null, 2));
 
     if (applicationData.data && applicationData.data.length > 0) {
       const application = applicationData.data[0];
+      // The data structure doesn't have 'attributes' wrapper, access directly
+      const state = application.state;
+      
+      console.log('Found application with state:', state);
+      
       return NextResponse.json({
         success: true,
         application: {
           id: application.id,
-          state: application.attributes.state || 'pending',
-          createdAt: application.attributes.createdAt,
-          updatedAt: application.attributes.updatedAt,
+          state: state || 'pending', // Treat empty/null as pending
+          createdAt: application.createdAt,
+          updatedAt: application.updatedAt,
         },
       });
     }
 
+    console.log('No application found for user');
     return NextResponse.json({
       success: true,
       application: null,

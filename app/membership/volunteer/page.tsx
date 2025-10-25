@@ -43,9 +43,26 @@ export default function Volunteer() {
   const fetchApplicationStatus = async () => {
     try {
       const response = await fetch('/api/volunteer/application-status');
+      console.log('Application status response status:', response.status);
+      
       if (response.ok) {
         const data = await response.json();
-        setApplication(data.application);
+        console.log('Application status data:', data);
+        
+        if (data.application) {
+          // Treat empty/null state as "pending"
+          const normalizedApplication = {
+            ...data.application,
+            state: data.application.state || "pending"
+          };
+          console.log('Setting application:', normalizedApplication);
+          setApplication(normalizedApplication);
+        } else {
+          console.log('No application found for user');
+          setApplication(null);
+        }
+      } else {
+        console.error('Failed to fetch application status:', response.statusText);
       }
     } catch (error) {
       console.error('Error fetching application status:', error);
@@ -131,7 +148,7 @@ export default function Volunteer() {
   }
 
   // Authenticated Role with Application States
-  if (userRole === 'authenticated') {
+  if (userRole === 'Authenticated') {
     // No Application - Show Registration Invitation
     if (!application) {
       return (
@@ -206,7 +223,9 @@ export default function Volunteer() {
 
     // Has Application - Show Status
     const getStatusIcon = (state: string) => {
-      switch (state) {
+      // Normalize state - treat empty/null as pending
+      const normalizedState = state || "pending";
+      switch (normalizedState) {
         case 'pending':
           return <Clock className="w-8 h-8 text-yellow-600" />;
         case 'approved':
@@ -219,7 +238,9 @@ export default function Volunteer() {
     };
 
     const getStatusColor = (state: string) => {
-      switch (state) {
+      // Normalize state - treat empty/null as pending
+      const normalizedState = state || "pending";
+      switch (normalizedState) {
         case 'pending':
           return 'bg-yellow-100 border-yellow-500';
         case 'approved':
@@ -227,12 +248,14 @@ export default function Volunteer() {
         case 'rejected':
           return 'bg-red-100 border-red-500';
         default:
-          return 'bg-gray-100 border-gray-500';
+          return 'bg-yellow-100 border-yellow-500'; // Default to pending style
       }
     };
 
     const getStatusMessage = (state: string) => {
-      switch (state) {
+      // Normalize state - treat empty/null as pending
+      const normalizedState = state || "pending";
+      switch (normalizedState) {
         case 'pending':
           return {
             title: 'Application Under Review',
@@ -253,14 +276,16 @@ export default function Volunteer() {
           };
         default:
           return {
-            title: 'Application Status Unknown',
-            message: 'Please contact support for information about your application status.',
-            canEdit: false
+            title: 'Application Under Review',
+            message: 'Your volunteer application has been submitted and is currently being reviewed by our team. We will notify you once a decision has been made.',
+            canEdit: true
           };
       }
     };
 
-    const statusInfo = getStatusMessage(application.state);
+    // Normalize the application state before using it
+    const normalizedState = application?.state || "pending";
+    const statusInfo = getStatusMessage(normalizedState);
 
     return (
       <div className="w-full p-4 max-w-4xl mx-auto">
@@ -270,10 +295,10 @@ export default function Volunteer() {
           </h1>
         </div>
 
-        <div className={`bg-white rounded-lg shadow-md p-8 border-l-4 ${getStatusColor(application.state)} mb-8`}>
+        <div className={`bg-white rounded-lg shadow-md p-8 border-l-4 ${getStatusColor(normalizedState)} mb-8`}>
           <div className="flex items-center justify-center mb-6">
-            <div className={`p-4 rounded-full ${getStatusColor(application.state).replace('border-', 'bg-').replace('-500', '-100')}`}>
-              {getStatusIcon(application.state)}
+            <div className={`p-4 rounded-full ${getStatusColor(normalizedState).replace('border-', 'bg-').replace('-500', '-100')}`}>
+              {getStatusIcon(normalizedState)}
             </div>
           </div>
 
@@ -303,7 +328,7 @@ export default function Volunteer() {
               </Link>
             )}
 
-            {application.state === 'rejected' && (
+            {normalizedState === 'rejected' && (
               <>
                 <button
                   onClick={() => setShowContact(true)}
@@ -324,7 +349,7 @@ export default function Volunteer() {
           </div>
         </div>
 
-        {application.state === 'rejected' && (
+        {normalizedState === 'rejected' && (
           <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
             <h3 className="text-lg font-bold text-blue-900 mb-3">Need More Information?</h3>
             <p className="text-blue-800 mb-4">
