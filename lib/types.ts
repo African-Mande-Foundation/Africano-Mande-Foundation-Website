@@ -13,6 +13,7 @@ export interface User {
   updatedAt: string;
   publishedAt: string;
   photoUrl: string;
+
 }
 
 export interface ParentComment {
@@ -22,6 +23,29 @@ export interface ParentComment {
   updatedAt: string;
   publishedAt: string;
   Content: string;
+}
+
+export interface Project {
+  id: number;
+  documentId: string;
+  Title: string;
+  Description: string;
+  Region: string;
+  Category: string;
+  StartDate: string;
+  EndDate: string;
+  Documents?: {
+    id: number;
+    url: string;
+    name: string;
+    alternativeText?: string;
+    size: number;
+    mime: string;
+  }[];
+  state: "upcoming" | "ongoing" | "completed" | "cancelled";
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
 export interface Comment {
@@ -138,3 +162,25 @@ export interface ApiResponse {
 
 export type Article = ArticleData;
 export type RecentComment = Comment;
+
+export interface PaymentPayload {
+  reference: string;
+  amount: number;
+  currency: string;
+  email: string;
+}
+
+export interface DonationData {
+  transactionId: string;
+  amount_usd: number;
+  cause: string;
+}
+
+export interface RegisteredDonationData extends DonationData {
+  users_permissions_user: string | number;
+}
+
+export interface NonRegisteredDonationData extends DonationData {
+  fullName: string;
+  email: string;
+}

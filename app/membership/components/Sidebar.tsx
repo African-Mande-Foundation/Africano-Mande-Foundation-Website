@@ -27,10 +27,10 @@ export default function Sidebar({
 }: sidebarProps) {
   const navItems = [
     { icon: LayoutDashboard, label: "Dashboard", href: "/membership" },
-    { icon: ListChecks, label: "Activities", href: "/membership/activities" },
+    { icon: ListChecks, label: "My Activities", href: "/membership/activities" },
     { icon: Newspaper, label: "News", href: "/membership/news" },
     { icon: FolderKanban, label: "Projects", href: "/membership/projects" },
-    { icon: HeartHandshake, label: "Donations", href: "/membership/donations" },
+    { icon: HeartHandshake, label: "Donate", href: "/membership/donate" },
     { icon: HelpingHand, label: "Volunteer", href: "/membership/volunteer" },
     { icon: CalendarDays, label: "Events", href: "/membership/events" },
     { icon: UserCog, label: "Settings", href: "/membership/settings" },

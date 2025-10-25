@@ -36,7 +36,11 @@ export default function Navbar({ setIsMobileMenuOpen, user }: navbarProps) {
           </p>
         </div>
         <div className="flex items-center justify-center gap-x-2 h-full">
-          <button>
+          <button
+          title="Logout"
+          onClick={handleLogout}
+          className="transition-all duration-300 ease-out hover:scale-110 cursor-pointer"
+          >
             <LogOut className="text-black" />
           </button>
 
@@ -58,6 +62,7 @@ export default function Navbar({ setIsMobileMenuOpen, user }: navbarProps) {
         </div>
         <div className="flex items-center justify-center gap-x-6 h-full">
           <button
+            title="Logout"
             onClick={handleLogout}
             className="transition-all duration-300 ease-out hover:scale-110 cursor-pointer"
           >

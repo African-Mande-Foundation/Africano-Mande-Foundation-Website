@@ -2,6 +2,7 @@
 import { Heart } from "lucide-react";
 import { useState } from "react";
 import PaystackButtonInline from "@/app/components/PaystackButonInline";
+import Link from "next/link";
 
 interface DonationProps {
   showDonateModal: boolean;
@@ -21,9 +22,9 @@ const canDonateCustom = emailValid && typeof customAmount === "number" && custom
 
                 <div className="w-full h-auto bg-[#3b6907] gap-y-8 md:gap-y-13 p-5 md:p-10 flex flex-col items-center justify-between">
                     <div className="text-white font-bold text-2xl md:text-3xl lg:text-4xl text-center">Your support can make a lasting impact!</div>
-                    <button className="px-8 py-4 bg-[#005e84] text-white items-center justify-center flex gap-2 md:gap-4 text-sm md:text-base rounded-2xl cursor-point hover:bg-[#fff] hover:text-[#005e84] transition duration-300 cursor-pointer" onClick={() => setShowDonateModal(true)}>
+                    <Link href="/donation" className="px-8 py-4 bg-[#005e84] text-white items-center justify-center flex gap-2 md:gap-4 text-sm md:text-base rounded-2xl cursor-point hover:bg-[#fff] hover:text-[#005e84] transition duration-300 cursor-pointer">
                     <span>Donate Now</span> <Heart className="w-4 md:w-5"/>
-                </button>
+                </Link>
                 </div>
             </div>
 
@@ -78,7 +79,6 @@ const canDonateCustom = emailValid && typeof customAmount === "number" && custom
                                     amount={amt}
                                     email={email}
                                     label={`Donate $${amt}`}
-                                    currency="KEN"
                                     onVerified={({ reference }) => {
                                     
                                     console.log("Verified ref:", reference);
@@ -120,7 +120,6 @@ const canDonateCustom = emailValid && typeof customAmount === "number" && custom
                                     amount={Number(customAmount)}
                                     email={email}
                                     label="Donate"
-                                    currency="KEN"
                                     onVerified={({ reference }) => {
                                     console.log("Verified ref:", reference);
                                     }}

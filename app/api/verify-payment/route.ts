@@ -2,35 +2,66 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { reference, email } = await req.json();
+    const { reference } = await req.json();
 
-    const r = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${process.env.PAYSTACK_SECRET!}`, 
-        "Content-Type": "application/json",
-      },
-      cache: "no-store",
-    });
+    if (!reference) {
+      return NextResponse.json(
+        { status: "error", message: "Payment reference is required" },
+        { status: 400 }
+      );
+    }
 
-    const data = await r.json();
+    console.log("Verifying payment reference:", reference);
 
-    if (data?.status && data?.data?.status === "success") {
-      const amount = (data.data.amount ?? 0) / 100;
-      const currency = data.data.currency ?? "KEN";
+    // Verify payment with Paystack
+    const response = await fetch(
+      `https://api.paystack.co/transaction/verify/${reference}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY!}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
+    const data = await response.json();
+    console.log("Paystack verification response:", data);
+
+    if (data.status && data.data.status === "success") {
+      // Payment was successful
+      const paymentData = data.data;
+
+      // Here you can save the payment to your database
+      // await savePaymentToDatabase(paymentData);
 
       return NextResponse.json({
         status: "success",
-        reference,
-        email,
-        amount,
-        currency,
+        message: "Payment verified successfully",
+        data: {
+          reference: paymentData.reference,
+          amount: paymentData.amount / 100, // Convert back from cents
+          currency: paymentData.currency,
+          customer: paymentData.customer,
+          status: paymentData.status,
+          paid_at: paymentData.paid_at,
+        },
       });
+    } else {
+      return NextResponse.json(
+        {
+          status: "error",
+          message: "Payment verification failed",
+          details: data,
+        },
+        { status: 400 }
+      );
     }
-
-    return NextResponse.json({ status: "failed", details: data }, { status: 400 });
-  } catch {
-    return NextResponse.json({ status: "error", message: "Verification failed" }, { status: 500 });
+  } catch (error) {
+    console.error("Payment verification error:", error);
+    return NextResponse.json(
+      { status: "error", message: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

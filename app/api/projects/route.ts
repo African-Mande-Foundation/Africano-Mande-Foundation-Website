@@ -1,3 +1,4 @@
+// app/api/projects/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -6,24 +7,32 @@ export async function GET(req: NextRequest) {
     const page = searchParams.get("page") || "1";
     const pageSize = searchParams.get("pageSize") || "12";
     const category = searchParams.get("category");
+    const region = searchParams.get("region");
+    const state = searchParams.get("state");
     
-    // Build URL step by step to avoid syntax errors
-    const baseUrl = `${process.env.STRAPI_URL}/api/articles`;
+    const baseUrl = `${process.env.STRAPI_URL}/api/projects`;
     const params = new URLSearchParams({
       'pagination[page]': page,
       'pagination[pageSize]': pageSize,
-      'sort': 'publishedAt:desc',
-      'populate[0]': 'cover',
-      'populate[1]': 'author',
-      'populate[2]': 'category'
+      'sort': 'createdAt:desc',
+      'populate[0]': 'Documents'
     });
     
+    // Add filters
     if (category && category !== "all") {
-      params.set('filters[category][slug][$eq]', category);
+      params.set('filters[Category][$eq]', category);
+    }
+    
+    if (region && region !== "all") {
+      params.set('filters[Region][$eq]', region);
+    }
+    
+    if (state && state !== "all") {
+      params.set('filters[state][$eq]', state);
     }
 
     const url = `${baseUrl}?${params.toString()}`;
-    console.log("Fetching articles from:", url); // Debug log
+    console.log("Fetching projects from:", url);
 
     const res = await fetch(url, {
       headers: {
@@ -37,16 +46,16 @@ export async function GET(req: NextRequest) {
       const errorText = await res.text();
       console.error("Strapi API error:", res.status, errorText);
       return NextResponse.json(
-        { message: "Failed to fetch articles", error: errorText },
+        { message: "Failed to fetch projects", error: errorText },
         { status: res.status }
       );
     }
 
     const data = await res.json();
-    console.log("Articles fetched successfully:", data.data?.length || 0); // Debug log
+    console.log("Projects fetched successfully:", data.data?.length || 0);
     return NextResponse.json(data);
   } catch (error) {
-    console.error("Articles API error:", error);
+    console.error("Projects API error:", error);
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }
