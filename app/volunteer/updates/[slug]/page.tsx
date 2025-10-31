@@ -1,4 +1,3 @@
-// app/membership/news/[slug]/page.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -34,7 +33,7 @@ interface CoverImage {
   height: number;
 }
 
-interface Article {
+interface VolunteerUpdate {
   id: number;
   documentId: string;
   title: string;
@@ -63,18 +62,18 @@ interface Comment {
 }
 
 interface ApiResponse {
-  data: Article;
+  data: VolunteerUpdate;
 }
 
 interface CommentsResponse {
   data: Comment[];
 }
 
-export default function ArticleDetail() {
+export default function VolunteerUpdateDetail() {
   const params = useParams();
   const router = useRouter();
   const { data: session } = useSession();
-  const [article, setArticle] = useState<Article | null>(null);
+  const [update, setUpdate] = useState<VolunteerUpdate | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(true);
   const [commentsLoading, setCommentsLoading] = useState(false);
@@ -83,44 +82,44 @@ export default function ArticleDetail() {
   const [isSubmittingComment, setIsSubmittingComment] = useState(false);
 
   useEffect(() => {
-    const fetchArticle = async () => {
+    const fetchUpdate = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`/api/articles/${params.slug}`);
+        const response = await fetch(`/api/volunteer/updates/${params.slug}`);
 
         if (!response.ok) {
           if (response.status === 404) {
-            setError("Article not found");
+            setError("Update not found");
           } else {
-            throw new Error("Failed to fetch article");
+            throw new Error("Failed to fetch update");
           }
           return;
         }
 
         const data: ApiResponse = await response.json();
-        setArticle(data.data);
+        setUpdate(data.data);
         
-        // Fetch comments after getting the article
+        // Fetch comments after getting the update
         if (data.data) {
           fetchComments();
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred");
-        console.error("Error fetching article:", err);
+        console.error("Error fetching update:", err);
       } finally {
         setLoading(false);
       }
     };
 
     if (params.slug) {
-      fetchArticle();
+      fetchUpdate();
     }
   }, [params.slug]);
 
   const fetchComments = async () => {
     try {
       setCommentsLoading(true);
-      const response = await fetch(`/api/articles/${params.slug}/comments`);
+      const response = await fetch(`/api/volunteer/updates/${params.slug}/comments`);
       
       if (response.ok) {
         const data: CommentsResponse = await response.json();
@@ -147,7 +146,7 @@ export default function ArticleDetail() {
 
     try {
       setIsSubmittingComment(true);
-      const response = await fetch(`/api/articles/${params.slug}/comments`, {
+      const response = await fetch(`/api/volunteer/updates/${params.slug}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -239,24 +238,24 @@ export default function ArticleDetail() {
     );
   }
 
-  if (error || !article) {
+  if (error || !update) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-[#E6FFF4] from-60% to-white">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
-              {error === "Article not found" ? "Article Not Found" : "Error Loading Article"}
+              {error === "Update not found" ? "Update Not Found" : "Error Loading Update"}
             </h1>
             <p className="text-gray-600 mb-4">
-              {error === "Article not found"
-                ? "The article you're looking for doesn't exist or has been removed."
+              {error === "Update not found"
+                ? "The update you're looking for doesn't exist or has been removed."
                 : error}
             </p>
             <Link
-              href="/membership/news"
+              href="/volunteer/updates"
               className="bg-[#04663A] text-white px-4 py-2 rounded-lg hover:bg-[#035530] transition-colors inline-block"
             >
-              Back to News
+              Back to Updates
             </Link>
           </div>
         </div>
@@ -270,30 +269,30 @@ export default function ArticleDetail() {
         {/* Navigation */}
         <div className="flex items-center justify-between mb-8">
           <Link 
-            href="/membership/news"
+            href="/volunteer/updates"
             className="inline-flex items-center text-[#04663A] hover:text-[#035530] font-medium transition-colors"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to News
+            Back to Updates
           </Link>
         </div>
 
-        {/* Article Header */}
+        {/* Update Header */}
         <article className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Cover Image */}
-          {article.cover && (
+          {update.cover && (
             <div className="relative h-64 md:h-96">
               <Image
-                src={getImageUrl(article.cover)}
-                alt={article.cover.alternativeText || article.title}
+                src={getImageUrl(update.cover)}
+                alt={update.cover.alternativeText || update.title}
                 fill
                 className="object-cover"
                 priority
               />
-              {article.category && (
+              {update.category && (
                 <div className="absolute top-6 left-6">
                   <span className="bg-[#04663A] text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {article.category.name}
+                    {update.category.name}
                   </span>
                 </div>
               )}
@@ -301,40 +300,40 @@ export default function ArticleDetail() {
           )}
 
           <div className="p-6 md:p-8">
-            {/* Article Meta */}
+            {/* Update Meta */}
             <div className="flex items-center justify-between mb-6">
               <Link 
-                href="/membership/news"
+                href="/volunteer/updates"
                 className="inline-flex items-center text-[#04663A] hover:text-[#035530] font-medium transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                News
+                Updates
               </Link>
             </div>
 
             {/* Title and Description */}
             <header className="mb-8">
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                {article.title}
+                {update.title}
               </h1>
 
               {/* Meta Information */}
               <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 pb-6 border-b border-gray-200">
-                {article.author && (
+                {update.author && (
                   <div className="flex items-center">
                     <User className="w-4 h-4 mr-2" />
-                    <span>By {article.author.name}</span>
+                    <span>By {update.author.name}</span>
                   </div>
                 )}
 
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2" />
-                  <span>{formatDate(article.publishedAt)}</span>
+                  <span>{formatDate(update.publishedAt)}</span>
                 </div>
 
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-2" />
-                  <span>{calculateReadTime(article.content || "")} min read</span>
+                  <span>{calculateReadTime(update.content || "")} min read</span>
                 </div>
 
                 <div className="flex items-center">
@@ -344,11 +343,11 @@ export default function ArticleDetail() {
               </div>
             </header>
 
-            {/* Article Content */}
+            {/* Update Content */}
             <div className="max-w-none mb-12">
               <div 
                 className="text-gray-700 leading-relaxed prose-content whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{ __html: article.content || "No content available." }}
+                dangerouslySetInnerHTML={{ __html: update.content || "No content available." }}
               />
             </div>
 

@@ -136,7 +136,7 @@ export default function Volunteer() {
         </div>
 
         <div className="text-center">
-          <Link href="/membership/volunteer/portal">
+          <Link href="/volunteer">
             <button className="bg-[#04663A] text-white font-bold py-4 px-8 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105 flex items-center mx-auto">
               <span className="mr-3">Access Volunteer Portal</span>
               <ArrowRight className="w-5 h-5" />

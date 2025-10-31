@@ -4,7 +4,7 @@ export interface User {
   username: string;
   firstName: string;
   lastName: string;
-  status: "member" | "volunteer";
+  status:string;
   email: string;
   provider: string;
   confirmed: boolean;
@@ -138,7 +138,7 @@ export interface ArticleData {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  excerpt: string | null;
+  content: string | null;
   type: string | null;
   comments: Comment[];
   cover: Cover;

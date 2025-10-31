@@ -30,8 +30,24 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
           const lastName = data.lastName || session.user?.name?.split(" ")[1] || "";
           const userImage = session.user?.image;
 
+          // Determine user status based on role
+          let userStatus = "member"; // Default status
+          
+          if (data.role) {
+            // Check if role is an object with name property or just a string
+            const roleName = typeof data.role === 'object' ? data.role.name : data.role;
+            
+            if (roleName === "Volunteer") {
+              userStatus = "volunteer";
+            } else if (roleName === "Authenticated") {
+              userStatus = "member";
+            }
+          }
+
+          console.log('User role:', data.role, 'Status set to:', userStatus);
+
           setUser({
-            id: data.id || 0, // Add missing properties
+            id: data.id || 0,
             documentId: data.documentId || "",
             provider: data.provider || "google",
             confirmed: data.confirmed || true,
@@ -42,7 +58,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
             firstName,
             lastName,
             username: data.username || session.user?.name || "",
-            status: "member",
+            status: userStatus, // Use the determined status
             email: data.email || session.user?.email || "",
             photoUrl: userImage && userImage.trim() !== "" 
               ? userImage 
@@ -57,7 +73,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
           
           // Fallback to session data if API fails
           setUser({
-            id: 0, // Default values for missing properties
+            id: 0,
             documentId: "",
             provider: "google",
             confirmed: true,
@@ -68,7 +84,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
             firstName,
             lastName,
             username: session.user?.name || "",
-            status: "member",
+            status: "member", // Default to member if API fails
             email: session.user?.email || "",
             photoUrl: userImage && userImage.trim() !== "" 
               ? userImage 
@@ -81,7 +97,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
     };
 
     fetchUser();
-  }, [status, session]); // Add session to dependencies
+  }, [status, session]);
 
   if (status === "loading" || isFetchingUser) {
     return (

@@ -4,10 +4,50 @@ import { useState, useEffect, useCallback } from "react";
 import { Search, Filter, Calendar, User, Tag, ArrowRight, Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Article, Category } from "@/lib/types";
 
-interface ArticlesResponse {
-  data: Article[];
+interface Category {
+  id: number;
+  documentId: string;
+  name: string;
+  slug: string;
+  description?: string;
+}
+
+interface Author {
+  id: number;
+  documentId: string;
+  name: string;
+  email?: string;
+}
+
+interface CoverImage {
+  id: number;
+  documentId: string;
+  name: string;
+  url: string;
+  alternativeText?: string;
+  caption?: string;
+  width: number;
+  height: number;
+}
+
+interface VolunteerUpdate {
+  id: number;
+  documentId: string;
+  title: string;
+  description: string;
+  content: string;
+  slug: string;
+  publishedAt: string;
+  createdAt: string;
+  updatedAt: string;
+  cover?: CoverImage;
+  author?: Author;
+  category?: Category;
+}
+
+interface ApiResponse {
+  data: VolunteerUpdate[];
   meta: {
     pagination: {
       page: number;
@@ -22,8 +62,8 @@ interface CategoriesResponse {
   data: Category[];
 }
 
-export default function News() {
-  const [articles, setArticles] = useState<Article[]>([]);
+export default function VolunteerUpdatesPage() {
+  const [updates, setUpdates] = useState<VolunteerUpdate[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -44,10 +84,10 @@ export default function News() {
     }
   }, []);
 
-  const fetchArticles = useCallback(async () => {
+  const fetchUpdates = useCallback(async () => {
     try {
       setLoading(true);
-      let url = `/api/articles?page=${currentPage}&pageSize=12`;
+      let url = `/api/volunteer/updates?page=${currentPage}&pageSize=12`;
       
       if (selectedCategory !== "all") {
         url += `&category=${selectedCategory}`;
@@ -56,15 +96,15 @@ export default function News() {
       const res = await fetch(url);
       
       if (!res.ok) {
-        throw new Error("Failed to fetch articles");
+        throw new Error("Failed to fetch volunteer updates");
       }
 
-      const data: ArticlesResponse = await res.json();
-      setArticles(data.data || []);
+      const data: ApiResponse = await res.json();
+      setUpdates(data.data || []);
       setTotalPages(data.meta?.pagination?.pageCount || 1);
     } catch (err) {
-      console.error("Error fetching articles:", err);
-      setError("Failed to load articles. Please try again later.");
+      console.error("Error fetching updates:", err);
+      setError("Failed to load updates. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -75,13 +115,13 @@ export default function News() {
   }, [fetchCategories]);
 
   useEffect(() => {
-    fetchArticles();
-  }, [fetchArticles]);
+    fetchUpdates();
+  }, [fetchUpdates]);
 
-  const filteredArticles = articles.filter((article) =>
-    article.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    article.content?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    article.author?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredUpdates = updates.filter((update) =>
+    update.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    update.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    update.author?.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const formatDate = (dateString: string) => {
@@ -103,7 +143,7 @@ export default function News() {
     return text.substr(0, maxLength) + "...";
   };
 
-  if (loading && articles.length === 0) {
+  if (loading && updates.length === 0) {
     return (
       <div className="w-full p-4 max-w-7xl mx-auto">
         <div className="animate-pulse space-y-8">
@@ -129,8 +169,8 @@ export default function News() {
     <div className="w-full p-4 max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-black text-3xl font-bold mb-2">News & Articles</h1>
-        <p className="text-gray-600">Stay updated with the latest news and insights</p>
+        <h1 className="text-black text-3xl font-bold mb-2">Volunteer Updates</h1>
+        <p className="text-gray-600">Stay updated with the latest volunteer news and updates</p>
       </div>
 
       {/* Search and Filter */}
@@ -139,7 +179,7 @@ export default function News() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
-            placeholder="Search articles by title, content, or author..."
+            placeholder="Search updates by title, content, or author..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04663A] focus:border-transparent"
@@ -173,30 +213,30 @@ export default function News() {
         </div>
       )}
 
-      {/* Articles Grid */}
-      {filteredArticles.length === 0 ? (
+      {/* Updates Grid */}
+      {filteredUpdates.length === 0 ? (
         <div className="text-center py-12">
           <Eye className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            {searchTerm ? "No articles found" : "No articles available"}
+            {searchTerm ? "No updates found" : "No updates available"}
           </h3>
           <p className="text-gray-600">
             {searchTerm 
               ? "Try adjusting your search criteria." 
-              : "Check back later for new articles."}
+              : "Check back later for new updates."}
           </p>
         </div>
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {filteredArticles.map((article) => (
-              <article key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
-                {/* Article Cover Image */}
+            {filteredUpdates.map((update) => (
+              <article key={update.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                {/* Update Cover Image */}
                 <div className="relative h-48 bg-gray-200">
-                  {article.cover?.url ? (
+                  {update.cover?.url ? (
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${article.cover.url}`}
-                      alt={article.cover.alternativeText || article.title || "Article"}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${update.cover.url}`}
+                      alt={update.cover.alternativeText || update.title || "Update"}
                       fill
                       className="object-cover"
                     />
@@ -209,47 +249,47 @@ export default function News() {
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#04663A] text-white">
-                      {article.category?.name || "Uncategorized"}
+                      {update.category?.name || "news!"}
                     </span>
                   </div>
                 </div>
 
-                {/* Article Content */}
+                {/* Update Content */}
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2 hover:text-[#04663A] transition-colors">
-                    <Link href={`/membership/news/${article.slug}`}>
-                      {article.title || "Untitled"}
+                  <h2 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                    <Link href={`/volunteer/updates/${update.slug}`} className="hover:text-[#04663A] transition-colors">
+                      {update.title || "Untitled"}
                     </Link>
                   </h2>
                   
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {article.description 
-                      ? stripHtml(article.description) 
-                      : truncateText(stripHtml(article.content || ""), 150)
+                    {update.description 
+                      ? stripHtml(update.description) 
+                      : truncateText(stripHtml(update.content || ""), 150)
                     }
                   </p>
 
-                  {/* Article Meta */}
+                  {/* Update Meta */}
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-gray-500">
                       <User className="w-4 h-4 mr-2" />
-                      <span>By {article.author?.name || "Unknown Author"}</span>
+                      <span>By {update.author?.name || "Author 1"}</span>
                     </div>
                     
                     <div className="flex items-center text-sm text-gray-500">
                       <Calendar className="w-4 h-4 mr-2" />
-                      <span>{formatDate(article.publishedAt)}</span>
+                      <span>{formatDate(update.publishedAt)}</span>
                     </div>
                     
                     <div className="flex items-center text-sm text-gray-500">
                       <Tag className="w-4 h-4 mr-2" />
-                      <span>{article.category?.name || "Uncategorized"}</span>
+                      <span>{update.category?.name || "news!"}</span>
                     </div>
                   </div>
 
-                  {/* Read More Button */}
+                  {/* Read More Link */}
                   <Link 
-                    href={`/membership/news/${article.slug}`}
+                    href={`/volunteer/updates/${update.slug}`}
                     className="inline-flex items-center text-[#04663A] hover:text-[#035530] font-medium text-sm transition-colors group"
                   >
                     Read More

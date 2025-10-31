@@ -1,4 +1,3 @@
-// app/api/articles/[slug]/comments/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
@@ -9,7 +8,7 @@ interface StrapiUser {
   email: string;
 }
 
-interface StrapiComment {
+interface StrapiVolunteerComment {
   id: number;
   documentId: string;
   Content: string; // Capital C to match your Strapi schema
@@ -18,8 +17,8 @@ interface StrapiComment {
   user?: StrapiUser;
 }
 
-interface StrapiCommentsResponse {
-  data: StrapiComment[];
+interface StrapiVolunteerCommentsResponse {
+  data: StrapiVolunteerComment[];
 }
 
 export async function GET(
@@ -29,9 +28,9 @@ export async function GET(
   try {
     const { slug } = await params;
 
-    // First get the article to find its ID
-    const articleResponse = await fetch(
-      `${process.env.STRAPI_URL}/api/articles?filters[slug][$eq]=${slug}`,
+    // First get the volunteer article to find its ID
+    const volunteerArticleResponse = await fetch(
+      `${process.env.STRAPI_URL}/api/volunteer-articles?filters[slug][$eq]=${slug}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
@@ -40,26 +39,26 @@ export async function GET(
       }
     );
 
-    if (!articleResponse.ok) {
+    if (!volunteerArticleResponse.ok) {
       return NextResponse.json(
-        { message: "Article not found" },
+        { message: "Volunteer article not found" },
         { status: 404 }
       );
     }
 
-    const articleData = await articleResponse.json();
-    const article = articleData.data[0];
+    const volunteerArticleData = await volunteerArticleResponse.json();
+    const volunteerArticle = volunteerArticleData.data[0];
 
-    if (!article) {
+    if (!volunteerArticle) {
       return NextResponse.json(
-        { message: "Article not found" },
+        { message: "Volunteer article not found" },
         { status: 404 }
       );
     }
 
-    // Get comments for this article
+    // Get comments for this volunteer article
     const commentsResponse = await fetch(
-      `${process.env.STRAPI_URL}/api/comments?filters[article][id][$eq]=${article.id}&populate=user&sort=createdAt:desc`,
+      `${process.env.STRAPI_URL}/api/comments?filters[volunteer_article][id][$eq]=${volunteerArticle.id}&populate=user&sort=createdAt:desc`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
@@ -69,15 +68,15 @@ export async function GET(
     );
 
     if (!commentsResponse.ok) {
-      console.log("Comments fetch failed:", await commentsResponse.text());
+      console.log("Volunteer comments fetch failed:", await commentsResponse.text());
       return NextResponse.json({ data: [] });
     }
 
-    const commentsData: StrapiCommentsResponse = await commentsResponse.json();
-    console.log("Fetched comments:", JSON.stringify(commentsData, null, 2));
+    const commentsData: StrapiVolunteerCommentsResponse = await commentsResponse.json();
+    console.log("Fetched volunteer comments:", JSON.stringify(commentsData, null, 2));
     
     // Transform the data to match the expected format in your frontend
-    const transformedComments = commentsData.data?.map((comment: StrapiComment) => ({
+    const transformedComments = commentsData.data?.map((comment: StrapiVolunteerComment) => ({
       id: comment.id,
       documentId: comment.documentId,
       content: comment.Content, // Map capital Content to lowercase content
@@ -92,7 +91,7 @@ export async function GET(
 
     return NextResponse.json({ data: transformedComments });
   } catch (error) {
-    console.error("Comments API error:", error);
+    console.error("Volunteer comments API error:", error);
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }
@@ -125,9 +124,9 @@ export async function POST(
 
     const { slug } = await params;
 
-    // First get the article to find its ID
-    const articleResponse = await fetch(
-      `${process.env.STRAPI_URL}/api/articles?filters[slug][$eq]=${slug}`,
+    // First get the volunteer article to find its ID
+    const volunteerArticleResponse = await fetch(
+      `${process.env.STRAPI_URL}/api/volunteer-articles?filters[slug][$eq]=${slug}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
@@ -136,19 +135,19 @@ export async function POST(
       }
     );
 
-    if (!articleResponse.ok) {
+    if (!volunteerArticleResponse.ok) {
       return NextResponse.json(
-        { message: "Article not found" },
+        { message: "Volunteer article not found" },
         { status: 404 }
       );
     }
 
-    const articleData = await articleResponse.json();
-    const article = articleData.data[0];
+    const volunteerArticleData = await volunteerArticleResponse.json();
+    const volunteerArticle = volunteerArticleData.data[0];
 
-    if (!article) {
+    if (!volunteerArticle) {
       return NextResponse.json(
-        { message: "Article not found" },
+        { message: "Volunteer article not found" },
         { status: 404 }
       );
     }
@@ -185,12 +184,12 @@ export async function POST(
     const commentPayload = {
       data: {
         Content: content.trim(), // Using capital C as shown in your schema
-        article: article.id,
+        volunteer_article: volunteerArticle.id, // Connect to volunteer article
         user: user.id,
       },
     };
 
-    console.log("Creating comment with payload:", JSON.stringify(commentPayload, null, 2));
+    console.log("Creating volunteer comment with payload:", JSON.stringify(commentPayload, null, 2));
 
     const commentResponse = await fetch(
       `${process.env.STRAPI_URL}/api/comments`,
@@ -206,18 +205,18 @@ export async function POST(
 
     if (!commentResponse.ok) {
       const errorText = await commentResponse.text();
-      console.error("Strapi comment creation error:", errorText);
+      console.error("Strapi volunteer comment creation error:", errorText);
       return NextResponse.json(
-        { message: "Failed to create comment", error: errorText },
+        { message: "Failed to create volunteer comment", error: errorText },
         { status: 500 }
       );
     }
 
     const commentData = await commentResponse.json();
-    console.log("Comment created successfully:", JSON.stringify(commentData, null, 2));
+    console.log("Volunteer comment created successfully:", JSON.stringify(commentData, null, 2));
     return NextResponse.json({ data: commentData.data });
   } catch (error) {
-    console.error("Comment creation error:", error);
+    console.error("Volunteer comment creation error:", error);
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }

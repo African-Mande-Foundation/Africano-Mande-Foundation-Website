@@ -494,6 +494,45 @@ body {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.prose-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.prose-content strong {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.prose-content blockquote {
+  border-left: 4px solid #04663A;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.prose-content blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #04663A;
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  opacity: 0.3;
+}
+
+.prose-content blockquote p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 
 
 
