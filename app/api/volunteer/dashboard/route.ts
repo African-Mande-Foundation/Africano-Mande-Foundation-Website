@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 // Types for the dashboard data
 interface User {
@@ -26,6 +26,7 @@ interface VolunteerApplication {
   kin_phone_number?: string;
   supervisor_remarks?: string;
   hours_completed?: number;
+  target_hours?: number;
   supervisor?: Supervisor | null;
   users_permissions_user?: User | null;
   createdAt: string;
@@ -42,6 +43,7 @@ interface StrapiVolunteerApplicationResponse {
   kin_phone_number?: string;
   supervisor_remarks?: string;
   hours_completed?: number;
+  target_hours?: number;
   supervisor?: Supervisor | null;
   users_permissions_user?: User | null;
   createdAt: string;
@@ -52,7 +54,7 @@ interface StrapiResponse {
   data: StrapiVolunteerApplicationResponse[];
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Fetch volunteer-application collection with relations
     const queryParams = new URLSearchParams({
@@ -95,6 +97,7 @@ export async function GET(request: NextRequest) {
       kin_phone_number: item.kin_phone_number,
       supervisor_remarks: item.supervisor_remarks,
       hours_completed: item.hours_completed,
+      target_hours: item.target_hours,
       supervisor: item.supervisor
         ? {
             id: item.supervisor.id,
@@ -118,6 +121,7 @@ export async function GET(request: NextRequest) {
 
     // Dashboard summary
     const totalHours = items.reduce((sum, item) => sum + (item.hours_completed || 0), 0);
+    const targetHours = items.reduce((sum, item) => sum + (item.target_hours || 0), 0);
     const supervisor = items[0]?.supervisor || null;
     const latestItems = [...items]
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -137,11 +141,12 @@ export async function GET(request: NextRequest) {
       applications: items,
       supervisor,
       totalHours,
+      targetHours,
       latestItems,
       startEndDates,
       role,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch dashboard data" },
       { status: 500 }

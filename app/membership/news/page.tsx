@@ -126,7 +126,7 @@ export default function News() {
   }
 
   return (
-    <div className="w-full p-4 max-w-7xl mx-auto">
+    <div className="w-full p-4 max-w-7xl mx-auto text-gray-600">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-black text-3xl font-bold mb-2">News & Articles</h1>

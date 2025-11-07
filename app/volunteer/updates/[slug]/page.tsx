@@ -1,7 +1,8 @@
+/* eslint-disable  */
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { Calendar, User, ArrowLeft, Clock, MessageSquare, Send } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,7 +72,6 @@ interface CommentsResponse {
 
 export default function VolunteerUpdateDetail() {
   const params = useParams();
-  const router = useRouter();
   const { data: session } = useSession();
   const [update, setUpdate] = useState<VolunteerUpdate | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);

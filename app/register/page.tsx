@@ -76,6 +76,8 @@ export default function Register () {
         redirect: false,
         identifier: email,
         password,
+        firstName,
+        lastName
       });
 
       if (signInRes?.error) {

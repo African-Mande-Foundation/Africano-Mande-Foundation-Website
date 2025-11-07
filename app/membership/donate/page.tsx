@@ -136,7 +136,7 @@ export default function MemberDonations() {
   }
 
   return (
-    <div className="w-full p-4 max-w-6xl mx-auto">
+    <div className="w-full p-4 max-w-6xl mx-auto text-gray-600">
       {/* Header */}
       <div className="mb-8 text-center">
         <h1 className="text-black text-3xl md:text-4xl font-bold mb-4">Make a Donation</h1>

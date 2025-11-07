@@ -15,7 +15,7 @@ interface StrapiEvent {
   Title: string;
   Description: string;
   Date: string;
-  Location: string;
+  Location: string | null;
   seats: number;
   seats_remaining: number;
   state: string;

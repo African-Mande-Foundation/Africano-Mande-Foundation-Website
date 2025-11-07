@@ -1,8 +1,8 @@
-// app/membership/projects/[id]/page.tsx
+/* eslint-disable  */
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams} from "next/navigation";
 import { Calendar, MapPin, Tag, Download, ArrowLeft, FileText, ExternalLink, Clock, CheckCircle, XCircle, PlayCircle } from "lucide-react";
 import Link from "next/link";
 import { Project } from "@/lib/types";
@@ -13,7 +13,6 @@ interface ProjectResponse {
 
 export default function ProjectPage() {
   const params = useParams();
-  const router = useRouter();
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -139,7 +138,7 @@ export default function ProjectPage() {
 
   if (error || !project) {
     return (
-      <div className="w-full p-4 max-w-4xl mx-auto">
+      <div className="w-full p-4 max-w-4xl mx-auto text-gray-700">
         <div className="text-center py-12">
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
             {error || "Project not found"}

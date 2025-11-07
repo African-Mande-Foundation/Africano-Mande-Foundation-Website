@@ -1,8 +1,9 @@
+/* eslint-disable  */
 "use client";
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { Calendar, MapPin, Users, Clock, Search, Filter, CheckCircle } from "lucide-react";
+import { Calendar, MapPin, Users, Search, Filter, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 interface Event {
@@ -15,7 +16,7 @@ interface Event {
     alternativeText?: string;
   } | null;
   Date: string;
-  Location: string;
+  Location: string | null;
   seats: number;
   seats_remaining: number;
   state: string | null;

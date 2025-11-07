@@ -95,7 +95,7 @@ export default function Volunteer() {
   // Volunteer Role - Welcome and Portal Access
   if (userRole === 'Volunteer') {
     return (
-      <div className="w-full p-4 max-w-6xl mx-auto">
+      <div className="w-full p-4 max-w-6xl mx-auto text-gray-600">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <div className="bg-green-100 p-4 rounded-full">
@@ -152,7 +152,7 @@ export default function Volunteer() {
     // No Application - Show Registration Invitation
     if (!application) {
       return (
-        <div className="w-full p-4 max-w-6xl mx-auto">
+        <div className="w-full p-4 max-w-6xl mx-auto text-gray-600">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
               <div className="bg-blue-100 p-4 rounded-full">
@@ -288,7 +288,7 @@ export default function Volunteer() {
     const statusInfo = getStatusMessage(normalizedState);
 
     return (
-      <div className="w-full p-4 max-w-4xl mx-auto">
+      <div className="w-full p-4 max-w-4xl mx-auto text-gray-600">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Volunteer Application Status
@@ -350,7 +350,7 @@ export default function Volunteer() {
         </div>
 
         {normalizedState === 'rejected' && (
-          <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+          <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 text-gray-600">
             <h3 className="text-lg font-bold text-blue-900 mb-3">Need More Information?</h3>
             <p className="text-blue-800 mb-4">
               If you have questions about your application or would like to understand how you can improve 

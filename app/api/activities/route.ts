@@ -104,7 +104,7 @@ export async function GET(request: NextRequest) {
       events,
       applications,
     } as ActivitiesResponse);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Failed to fetch activities" }, { status: 500 });
   }
 }

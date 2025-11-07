@@ -93,21 +93,6 @@ export default function Projects() {
     return words.slice(0, maxWords).join(" ") + "...";
   };
 
-  const truncateFileName = (fileName: string, maxLength: number = 25) => {
-    if (!fileName) return "";
-    if (fileName.length <= maxLength) return fileName;
-    
-    // Keep file extension intact
-    const lastDotIndex = fileName.lastIndexOf(".");
-    if (lastDotIndex === -1) {
-      return fileName.slice(0, maxLength) + "...";
-    }
-    
-    const extension = fileName.slice(lastDotIndex);
-    const nameWithoutExt = fileName.slice(0, lastDotIndex);
-    const truncatedName = nameWithoutExt.slice(0, maxLength - extension.length - 3);
-    return truncatedName + "..." + extension;
-  };
 
   const getStateColor = (state: string) => {
     switch (state) {
@@ -162,7 +147,7 @@ export default function Projects() {
   }
 
   return (
-    <div className="w-full p-4 max-w-7xl mx-auto">
+    <div className="w-full p-4 max-w-7xl mx-auto text-gray-700">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-black text-3xl font-bold mb-2">Our Projects</h1>

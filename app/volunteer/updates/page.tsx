@@ -166,7 +166,7 @@ export default function VolunteerUpdatesPage() {
   }
 
   return (
-    <div className="w-full p-4 max-w-7xl mx-auto">
+    <div className="w-full p-4 max-w-7xl mx-auto text-gray-700">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-black text-3xl font-bold mb-2">Volunteer Updates</h1>
@@ -235,7 +235,7 @@ export default function VolunteerUpdatesPage() {
                 <div className="relative h-48 bg-gray-200">
                   {update.cover?.url ? (
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${update.cover.url}`}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${update.cover.url}`}
                       alt={update.cover.alternativeText || update.title || "Update"}
                       fill
                       className="object-cover"

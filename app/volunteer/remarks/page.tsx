@@ -8,7 +8,6 @@ import {
   Star, 
   AlertTriangle, 
   CheckCircle, 
-  Clock, 
   User,
   Calendar,
   Send
@@ -55,6 +54,26 @@ interface RemarksResponse {
       total: number;
     };
   };
+}
+
+function SkeletonRow() {
+  return (
+    
+    <div className="flex justify-center">
+      <div className="animate-pulse flex gap-4 w-full max-w-3xl p-4 rounded-lg shadow-sm items-center">
+        <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0" />
+        <div className="flex-1 space-y-2">
+          <div className="h-4 bg-gray-200 rounded w-3/5" />
+          <div className="h-3 bg-gray-200 rounded w-1/2" />
+          <div className="h-3 bg-gray-200 rounded w-2/3" />
+        </div>
+        <div className="w-12 text-right">
+          <div className="h-4 bg-gray-200 rounded w-full" />
+          <div className="h-3 bg-gray-200 rounded w-full mt-2" />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function VolunteerRemarksPage() {
@@ -211,18 +230,23 @@ export default function VolunteerRemarksPage() {
 
   if (loading) {
     return (
-      <div className="w-full p-4 max-w-7xl mx-auto">
-        <div className="text-center py-8">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#04663A] mx-auto"></div>
-          <p className="mt-2 text-gray-600">Loading remarks...</p>
+      <div className=" w-full p-6">
+        <div>
+            <SkeletonRow />
+            <SkeletonRow />
+            <SkeletonRow />
+            <SkeletonRow />
+            <SkeletonRow />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full p-4 max-w-7xl mx-auto">
+    <div className="w-full p-4 max-w-7xl mx-auto text-gray-700">
       {/* Header */}
+
+      
       <div className="mb-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
           <div>

@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "localhost:1337",
         port:"1337"
+      },
+      {
+        protocol:"https",
+        hostname:"competent-chocolate-739a87dced.strapiapp.com"
       }
     ],
   },

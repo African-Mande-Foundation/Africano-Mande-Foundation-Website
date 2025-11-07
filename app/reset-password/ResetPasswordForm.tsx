@@ -57,7 +57,7 @@ export default function ResetPassword() {
         setPassword("");
         setConfirmPassword("");
       }
-    } catch (err) {
+    } catch {
       setError("An unexpected error occurred.");
     } finally {
       setIsLoading(false);

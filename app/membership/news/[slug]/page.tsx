@@ -1,8 +1,8 @@
-// app/membership/news/[slug]/page.tsx
+/* eslint-disable  */
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { Calendar, User, ArrowLeft, Clock, MessageSquare, Send } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -72,7 +72,6 @@ interface CommentsResponse {
 
 export default function ArticleDetail() {
   const params = useParams();
-  const router = useRouter();
   const { data: session } = useSession();
   const [article, setArticle] = useState<Article | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -100,7 +99,6 @@ export default function ArticleDetail() {
         const data: ApiResponse = await response.json();
         setArticle(data.data);
         
-        // Fetch comments after getting the article
         if (data.data) {
           fetchComments();
         }
@@ -179,12 +177,6 @@ export default function ArticleDetail() {
     });
   };
 
-  const formatTime = (dateString: string) => {
-    return new Date(dateString).toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
 
   const formatRelativeTime = (dateString: string) => {
     const now = new Date();

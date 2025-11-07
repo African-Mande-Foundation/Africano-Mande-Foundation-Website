@@ -61,7 +61,7 @@ export default function VolunteerRequirements() {
   ];
 
   return (
-    <div className="w-full p-4 max-w-6xl mx-auto">
+    <div className="w-full p-4 max-w-6xl mx-auto text-gray-600">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

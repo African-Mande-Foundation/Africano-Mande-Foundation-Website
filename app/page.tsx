@@ -18,7 +18,7 @@ export default function Home() {
     <div className="bg-white w-auto h-auto">
       <Navbar showContactModal={showContactModal}
         setShowContactModal={setShowContactModal}/>
-      <Hero setShowDonateModal={setShowDonateModal}/>
+      <Hero/>
       <AboutUs/>
       <Services/>
       <Donation showDonateModal={showDonateModal}
@@ -27,7 +27,7 @@ export default function Home() {
       <Archives/>
       <Projects/>
       <Location/>
-      <Footer setShowDonateModal={setShowDonateModal} />
+      <Footer/>
     </div>
   );
 }

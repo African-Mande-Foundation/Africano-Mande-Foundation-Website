@@ -53,7 +53,7 @@ export default function Settings() {
                         setEmail(sessionEmail);
                         setOriginalEmail(sessionEmail); // Store original email
                     }
-                } catch (error) {
+                } catch {
                     // Fallback to session data if API fails
                     const sessionFirstName = session.user.name?.split(" ")[0] || "";
                     const sessionLastName = session.user.name?.split(" ")[1] || "";
@@ -128,7 +128,7 @@ export default function Settings() {
                 }
             }
 
-        } catch (err) {
+        } catch {
             setError("An unexpected error occurred.");
         } finally {
             setIsLoading(false);
@@ -181,7 +181,7 @@ export default function Settings() {
             setCurrentPassword("");
             setNewPassword("");
             setConfirmPassword("");
-        } catch (err) {
+        } catch {
             setError("An unexpected error occurred.");
         } finally {
             setIsLoading(false);
@@ -224,7 +224,7 @@ export default function Settings() {
 
             // Account deleted successfully, sign out
             await signOut({ callbackUrl: "/" });
-        } catch (err) {
+        } catch {
             setError("An unexpected error occurred.");
             setIsDeleting(false);
         }
@@ -239,7 +239,7 @@ export default function Settings() {
     };
 
     return (
-        <div className="w-full p-4 max-w-4xl mx-auto">
+        <div className="w-full p-4 max-w-4xl mx-auto text-gray-700">
             {/* Email Change Modal */}
             {showEmailChangeModal && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">

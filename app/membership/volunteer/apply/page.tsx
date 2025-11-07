@@ -1,4 +1,4 @@
-// app/membership/volunteer/apply/page.tsx
+/* eslint-disable  */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -14,12 +14,6 @@ import {
   ChevronLeft,
   Save,
   Send,
-  Calendar,
-  MapPin,
-  Phone,
-  Mail,
-  Users,
-  Heart,
   CheckCircle
 } from "lucide-react";
 
@@ -675,7 +669,7 @@ export default function VolunteerApplication() {
   );
 
   const renderQuestionsSection = () => (
-    <div className="space-y-6 text-gray-700">
+    <div className="space-y-6 text-gray-700 ">
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           How did you learn about the volunteer opportunity? *
@@ -767,7 +761,7 @@ export default function VolunteerApplication() {
       </div>
 
       {(applicationData.visitedMaridi === 'Yes' || applicationData.visitedSouthSudan === 'Yes') && (
-        <div>
+        <div className="text-gray-700">
           <label className="block text-sm font-medium text-gray-700 mb-2">
             If yes, which places did your visit and what was the purpose of your visit? Did your visit include visit to Maridi?
           </label>

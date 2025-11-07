@@ -128,23 +128,7 @@ export const authOptions: NextAuthOptions = {
           user.email = registerData.user.email || profile.email;
           user.image = profile.picture || registerData.user.photoUrl;
           user.jwt = registerData.jwt;
-
-          const updateRes = await fetch(
-            `${process.env.STRAPI_URL}/api/users/${user.id}`,
-            {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.jwt}`,
-              },
-              body: JSON.stringify({
-                firstName: profile.given_name,
-                lastName: profile.family_name,
-                photoUrl: profile.picture,
-              }),
-            },
-          );
-          const updateData = await updateRes.json();
+          
 
           return true;
         } catch (error) {

@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 
-// Types
+
 interface StrapiUser {
   id: number;
   username: string;
   email: string;
-  firstname?: string; // Use the actual field name from Strapi User model
+  firstname?: string; 
 }
 
 interface StrapiVolunteerRemark {
@@ -42,11 +42,6 @@ interface StrapiResponse {
 // GET - Fetch volunteer remarks
 export async function GET(request: NextRequest) {
   try {
-    // Optional: Auth check (remove if you want public access)
-    // const session = await getServerSession(authOptions);
-    // if (!session) {
-    //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    // }
 
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get("page") || "1");
@@ -90,7 +85,7 @@ export async function GET(request: NextRequest) {
 
     const data: StrapiResponse = await response.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch volunteer remarks" },
       { status: 500 }
@@ -153,7 +148,7 @@ export async function POST(request: NextRequest) {
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch  {
     return NextResponse.json(
       { error: "Failed to create volunteer remark" },
       { status: 500 }
@@ -195,7 +190,7 @@ export async function PUT(request: NextRequest) {
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error) {
+  } catch  {
     return NextResponse.json(
       { error: "Failed to update volunteer remark" },
       { status: 500 }
