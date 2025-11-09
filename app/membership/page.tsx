@@ -1,17 +1,16 @@
 /* eslint-disable */
 "use client";
 import { User } from "@/lib/types";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { User2, ChartPie, Plus, ChevronRight} from "lucide-react";
 
-// narrow local types to avoid `any`
+
 type NewsItem = {
   id: number;
   title: string;
   publishedAt?: string;
-  // keep cover as object (Strapi / your API route returns cover.url)
   cover?: { url?: string; alternativeText?: string } | undefined;
   slug?: string;
 };
@@ -29,11 +28,6 @@ function safeString(v: unknown): string | undefined {
   return typeof v === "string" && v.trim() !== "" ? v : undefined;
 }
 
-/** Get a cover URL from common Strapi shapes:
- *  - cover: "https://..." (string)
- *  - cover: { url: "/uploads/..." } or cover: { data: { attributes: { url: "/uploads/..." } } }
- *  - attributes?.cover similar shapes
- */
 
 // helper to return absolute src for Next/Image
 function getImageSrc(cover?: { url?: string } | string | undefined): string | undefined {
@@ -143,7 +137,7 @@ export default function Membership() {
         setDonations(donationsResp);
         // helper to coerce amount to number
         const extractAmount = (d: DonationRecord) => {
-          const raw = d.amount_usd ?? d.amount ?? d.amount_cents ?? 0;
+          const raw = d.amount_usd ?? d.amount ?? 0;
           const rawStr = String(raw ?? "");
           const maybeNum = Number(raw);
           let value = Number(raw);
@@ -374,7 +368,7 @@ export default function Membership() {
 
         <div className="flex-1 w-full">
           <div className="text-center md:text-left">
-            <div className="text-2xl font-bold text-[#04663A]">${Math.round(totalSafe)}</div>
+            <div className="text-2xl font-bold text-[#04663A]">${total == 0 ? 0 : Math.round(totalSafe)}</div>
             <div className="text-xs text-gray-900">Total donated</div>
           </div>
 

@@ -97,8 +97,8 @@ export default function Gallery() {
                     <div key={img.url + index} className="item">
                         <img src={img.url} alt={img.title} />
                         <div className="content absolute w-full md:w-2/3 lg:w-1/2 gap-2 p-2 top-0 gradient-bg md:rounded-bl-full  items-center justify-center md:right-0 md:justify-start flex flex-col">
-                            <div className="title font-bold text-2xl md:text-3xl lg:text-4xl">{img.title}</div>
-                            <div className="description hidden md:flex">{img.description}</div>
+                            <div className="title text-center font-bold text-2xl md:text-3xl lg:text-4xl">{img.title}</div>
+                            {/*<div className="description hidden md:flex">{img.description}</div>*/}
                         </div>
                     </div>
                 ))}

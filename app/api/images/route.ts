@@ -89,19 +89,24 @@ export async function GET() {
 
     // Helper functions for image optimization
     const getOptimizedImageUrl = (image: StrapiImageData) => {
-      if (image.formats?.medium?.url) {
-        return `${process.env.STRAPI_URL}${image.formats.medium.url}`;
-      } else if (image.formats?.small?.url) {
-        return `${process.env.STRAPI_URL}${image.formats.small.url}`;
-      } else if (image.formats?.large?.url) {
-        return `${process.env.STRAPI_URL}${image.formats.large.url}`;
-      }
-      return `${process.env.STRAPI_URL}${image.url}`;
+      const url =
+        image.formats?.medium?.url ||
+        image.formats?.small?.url ||
+        image.formats?.large?.url ||
+        image.url;
+
+      // Only prefix if not absolute
+      return url.startsWith("http")
+        ? url
+        : `${process.env.STRAPI_URL}${url}`;
     };
 
     const getThumbnailUrl = (image: StrapiImageData) => {
-      if (image.formats?.thumbnail?.url) {
-        return `${process.env.STRAPI_URL}${image.formats.thumbnail.url}`;
+      const thumbUrl = image.formats?.thumbnail?.url;
+      if (thumbUrl) {
+        return thumbUrl.startsWith("http")
+          ? thumbUrl
+          : `${process.env.STRAPI_URL}${thumbUrl}`;
       }
       return getOptimizedImageUrl(image);
     };
@@ -110,7 +115,7 @@ export async function GET() {
       if (galleryItem.Images && Array.isArray(galleryItem.Images)) {
         galleryItem.Images.forEach((image: StrapiImageData) => {
           // Validate the image URL
-          if (!image.url || !image.url.startsWith("/uploads/")) {
+          if (!image.url || (!image.url.startsWith("/uploads/") && !image.url.startsWith("http"))) {
             console.warn("Skipping invalid image URL:", image.url);
             return;
           }

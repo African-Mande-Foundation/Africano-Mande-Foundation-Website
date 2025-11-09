@@ -92,19 +92,17 @@ export async function GET() {
         videoItem.videos.forEach((video: StrapiVideoData) => {
           // Validate the video URL and ensure it's a video file
           if (
-            !video.url ||
-            !video.url.startsWith("/uploads/") ||
-            !video.mime?.startsWith("video/")
+            !video.url
           ) {
             console.warn(
-              "Skipping invalid video URL or non-video file:",
+              "non-video file:",
               video.url,
               video.mime,
             );
             return;
           }
 
-          const videoUrl = `${process.env.STRAPI_URL}${video.url}`;
+          const videoUrl = `${video.url}`;
 
           transformedVideos.push({
             id: video.id,

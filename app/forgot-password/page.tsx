@@ -30,7 +30,7 @@ export default function ForgotPassword() {
       } else {
         setMessage(data.message);
       }
-    } catch (err) {
+    } catch {
       setError("An unexpected error occurred.");
     } finally {
       setIsLoading(false);

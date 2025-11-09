@@ -62,7 +62,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
             email: data.email || session.user?.email || "",
             photoUrl: userImage && userImage.trim() !== "" 
               ? userImage 
-              : `https://ui-avatars.com/api/?name=${encodeURIComponent(firstName + ' ' + lastName)}&background=04663A&color=ffffff&size=128`
+              : ""
           });
         } catch (error) {
           console.error("Error fetching user:", error);

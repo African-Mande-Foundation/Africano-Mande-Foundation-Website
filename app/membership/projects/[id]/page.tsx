@@ -87,7 +87,7 @@ export default function ProjectPage() {
   };
 
   const downloadFile = (fileUrl: string, fileName: string) => {
-    const fullUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${fileUrl}`;
+    const fullUrl = fileUrl.startsWith("http") ? `${fileUrl}` :`${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${fileUrl}`;
     const link = document.createElement('a');
     link.href = fullUrl;
     link.download = fileName;

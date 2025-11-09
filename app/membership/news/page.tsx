@@ -195,7 +195,11 @@ export default function News() {
                 <div className="relative h-48 bg-gray-200">
                   {article.cover?.url ? (
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${article.cover.url}`}
+                      src={
+                        article.cover.url.startsWith("http")
+                          ? article.cover.url
+                          : `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${article.cover.url}`
+                      }
                       alt={article.cover.alternativeText || article.title || "Article"}
                       fill
                       className="object-cover"

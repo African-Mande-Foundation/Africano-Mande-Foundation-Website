@@ -11,6 +11,8 @@ declare module "next-auth" {
     email?: string | null;
     image?: string | null;
     photoUrl?: string | null;
+    firstName?: string | null; // add
+    lastName?: string | null;  // add
   }
   interface Session {
     jwt?: string;
@@ -19,6 +21,8 @@ declare module "next-auth" {
       name?: string | null;
       email?: string | null;
       image?: string | null;
+      firstName?: string | null; // add
+      lastName?: string | null;  // add
     };
   }
 }
@@ -61,6 +65,8 @@ export const authOptions: NextAuthOptions = {
             email: data.user.email,
             photoUrl: data.user.photoUrl?.url || data.user.photoUrl || null,
             jwt: data.jwt,
+            firstName: data.user.firstName || null, // <-- add
+            lastName: data.user.lastName || null,   // <-- add
           };
         } catch (error) {
           console.error("Authorize error:", error);
@@ -74,11 +80,11 @@ export const authOptions: NextAuthOptions = {
       profile(profile) {
         return {
           id: profile.sub,
-          name: profile.name,
+          username: profile.name,
           email: profile.email,
           image: profile.picture,
-          given_name: profile.given_name,
-          family_name: profile.family_name,
+          firstName: profile.given_name,
+          lastName: profile.family_name,
         };
       },
       authorization: {
@@ -128,7 +134,33 @@ export const authOptions: NextAuthOptions = {
           user.email = registerData.user.email || profile.email;
           user.image = profile.picture || registerData.user.photoUrl;
           user.jwt = registerData.jwt;
-          
+          user.firstName = profile.given_name;
+          user.lastName = profile.family_name;
+
+          // PATCH Strapi user if names are missing
+          if (
+            (!registerData.user.firstName || !registerData.user.lastName) &&
+            (profile.given_name || profile.family_name)
+          ) {
+            try {
+              await fetch(
+                `${process.env.STRAPI_URL}/api/users/${registerData.user.id}`,
+                {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${registerData.jwt}`,
+                  },
+                  body: JSON.stringify({
+                    firstName: profile.given_name,
+                    lastName: profile.family_name,
+                  }),
+                }
+              );
+            } catch (updateErr) {
+              console.error("Failed to update Strapi user with Google names:", updateErr);
+            }
+          }
 
           return true;
         } catch (error) {
@@ -145,6 +177,8 @@ export const authOptions: NextAuthOptions = {
         token.name = user.name;
         token.email = user.email;
         token.image = user.image || user.photoUrl || null;
+        token.firstName = typeof user.firstName === "string" ? user.firstName : null;
+        token.lastName = typeof user.lastName === "string" ? user.lastName : null;
       }
       return token;
     },
@@ -156,6 +190,8 @@ export const authOptions: NextAuthOptions = {
           name: token.name || null,
           email: token.email || null,
           image: typeof token.image === "string" ? token.image : null,
+          firstName: typeof token.firstName === "string" ? token.firstName : null,
+          lastName: typeof token.lastName === "string" ? token.lastName : null,
         };
       }
       return session;
