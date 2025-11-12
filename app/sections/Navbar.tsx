@@ -337,7 +337,7 @@ export default function Navbar({
                       <button 
                         onClick={() => {
                           const link = document.createElement("a");
-                          link.href = "/AMF Charter.pdf";
+                          link.href = "/AMF-Charter.pdf";
                           link.download = "AMF-Charter.pdf";
                           document.body.appendChild(link);
                           link.click();
@@ -803,7 +803,7 @@ export default function Navbar({
                 <div className="cursor-pointer"
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/AMF Charter.pdf";
+                  link.href = "/AMF-Charter.pdf";
                   link.download = "AMF-Charter.pdf";
                   document.body.appendChild(link);
                   link.click();
