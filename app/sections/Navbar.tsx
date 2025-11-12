@@ -334,11 +334,17 @@ export default function Navbar({
                   </button>
                   {dropArchive && (
                     <div className="w-full text-sm text-left">
-                      <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">
-                        Project Documents
-                      </button>
-                      <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">
-                        Historical Documents
+                      <button 
+                        onClick={() => {
+                          const link = document.createElement("a");
+                          link.href = "/AMF Charter.pdf";
+                          link.download = "AMF-Charter.pdf";
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                        }}
+                        className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">
+                        AMF Charter
                       </button>
                       <button
                         className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white"
@@ -483,7 +489,15 @@ export default function Navbar({
                       <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">
                         Google Map
                       </button>
-                      <button className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">
+                      <button onClick={
+                        () => {
+                          const link = document.createElement("a");
+                          link.href = "https://www.google.com/maps/place/Maridi,+South+Sudan/@6.7767336,28.1996399,7z/data=!4m6!3m5!1s0x1715b472129689c1:0xed918f4c6458e5d!8m2!3d5.1331406!4d29.6035495!16s%2Fg%2F11c2k2f4zc!5m2!1e2!1e4?entry=ttu&g_ep=EgoyMDI0MTIwMS4xIKXMDSoASAFQAw%3D%3D"
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                        }}
+                        className="w-full py-3 px-2 flex items-center justify-start text-left border-b border-white text-white">
                         Maridi State Link
                       </button>
                     </div>
@@ -786,8 +800,16 @@ export default function Navbar({
                 <ChevronDown className="ml-2 w-4 h-4" />
               </button>
               <div className="small-menu">
-                <div className="cursor-pointer">Project documents</div>
-                <div className="cursor-pointer">Historic documents</div>
+                <div className="cursor-pointer"
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/AMF Charter.pdf";
+                  link.download = "AMF-Charter.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                >AMF Charter</div>
                 <div
                   className="cursor-pointer"
                   onClick={() => {
@@ -938,7 +960,15 @@ export default function Navbar({
                 >
                   Google Map
                 </div>
-                <div className="cursor-pointer">Maridi State Link</div>
+                <div onClick={
+                  () => {
+                    const link = document.createElement("a");
+                    link.href = "https://www.google.com/maps/place/Maridi,+South+Sudan/@6.7767336,28.1996399,7z/data=!4m6!3m5!1s0x1715b472129689c1:0xed918f4c6458e5d!8m2!3d5.1331406!4d29.6035495!16s%2Fg%2F11c2k2f4zc!5m2!1e2!1e4?entry=ttu&g_ep=EgoyMDI0MTIwMS4xIKXMDSoASAFQAw%3D%3D"
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }
+                } className="cursor-pointer">Maridi State Link</div>
               </div>
             </div>
 

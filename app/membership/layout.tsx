@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import { ReactNode, useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Sidebar from "./components/Sidebar";
@@ -11,10 +10,6 @@ interface MembershipLayoutProps {
   children: ReactNode;
 }
 
-export const metadata: Metadata = {
-  title: "Membership Portal",
-  description: "The Africano-Mande Foundation (AMF) Membership Portal enables members, volunteers, and partners to connect, collaborate, and access exclusive opportunities that support community development, education, and empowerment initiatives across South Sudan.",
-};
 
 export default function MembershipLayout({ children }: MembershipLayoutProps) {
   const { data: session, status } = useSession();

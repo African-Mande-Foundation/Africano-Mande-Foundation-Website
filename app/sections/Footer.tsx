@@ -22,9 +22,9 @@ export default function Footer () {
                     <div className="w-full items-start justify-start flex flex-col gap-y-6">
                         <div className="text-xl lg:text-2xl font-bold text-white items-center justify-center flex gap-x-2 mb-2"><div className="bg-[#7eaf58] w-[2px] h-6"></div><p>Learn More</p></div>
                         <div className="w-full items-start justify-start gap-y-2 flex flex-col">
-                            <Link href="" className="text-white underline ">Africano Mande</Link>
-                            <Link href="" className="text-white underline ">Maridi State</Link>
-                            <Link href="" className="text-white underline ">Maridi State Map</Link>
+                            <Link href="https://en.wikipedia.org/wiki/Africano_Mande" className="text-white underline ">Africano Mande</Link>
+                            <Link href="https://en.wikipedia.org/wiki/Maridi_State" className="text-white underline ">Maridi State</Link>
+                            <Link href="https://www.google.com/maps/place/Maridi,+South+Sudan/@6.7767336,28.1996399,7z/data=!4m6!3m5!1s0x1715b472129689c1:0xed918f4c6458e5d!8m2!3d5.1331406!4d29.6035495!16s%2Fg%2F11c2k2f4zc!5m2!1e2!1e4?entry=ttu&g_ep=EgoyMDI0MTIwMS4xIKXMDSoASAFQAw%3D%3D" className="text-white underline ">Maridi State Map</Link>
                         </div>
                         <div>
                             <Link href="/donation" className="px-5 py-3 bg-[#005e84] text-white items-center justify-center flex gap-2 md:gap-4 text-sm rounded-md cursor-point hover:bg-[#fff] hover:text-[#005e84] transition duration-300 cursor-pointer">
@@ -32,27 +32,27 @@ export default function Footer () {
                             </Link>
                         </div>
                         <div className="items-center justify-between flex gap-x-3">
-                            <Link href=""><FontAwesomeIcon
+                            <Link href="https://web.facebook.com/p/Africano-Mande-Foundation-100079635707396/?_rdc=1&_rdr"><FontAwesomeIcon
                             icon={faFacebookF}
                             className="w-5"
                             style={{ fontSize: "1.2rem" }}
                             /></Link>
-                            <Link href=""><FontAwesomeIcon
+                            <Link href="https://x.com/MandeFoundation"><FontAwesomeIcon
                             icon={faXTwitter}
                             className="w-5"
                             style={{ fontSize: "1.2rem" }}
                             /></Link>
-                            <Link href=""><FontAwesomeIcon
+                            <Link href="https://www.instagram.com/africano_mande_foundation/"><FontAwesomeIcon
                             icon={faInstagram}
                             className="w-5"
                             style={{ fontSize: "1.2rem" }}
                             /></Link>
-                            <Link href=""><FontAwesomeIcon
+                            <Link href="https://www.linkedin.com/in/africano-mande-foundation-457461339/"><FontAwesomeIcon
                             icon={faLinkedinIn}
                             className="w-5"
                             style={{ fontSize: "1.2rem" }}
                             /></Link>
-                            <Link href=""><FontAwesomeIcon
+                            <Link href="https://www.youtube.com/channel/UCPaxPJiU6PzkXdsUwkp0cnw"><FontAwesomeIcon
                             icon={faYoutube}
                             className="w-5"
                             style={{ fontSize: "1.2rem" }}
@@ -82,12 +82,12 @@ export default function Footer () {
                     <div className="w-full items-start justify-start flex flex-col gap-y-6">
                         <div className="text-xl lg:text-2xl font-bold text-white items-center justify-center flex gap-x-2 mb-2"><div className="bg-[#7eaf58] w-[2px] h-6"></div><p>Contact Us</p></div>
                         <div className="items-start justify-start flex flex-col gap-y-2">
-                            <p><Link href=""><FontAwesomeIcon
+                            <p><Link href="https://wa.me/211929756681"><FontAwesomeIcon
                             icon={faWhatsapp}
                             className="w-4 mr-1"
                             style={{ fontSize: "1.0rem" }}
                             /></Link>+211 92 104 2877</p>
-                            <p><Link href=""><FontAwesomeIcon
+                            <p><Link href="tel:+211924360010"><FontAwesomeIcon
                             icon={faPhone}
                             className="w-4 mr-1"
                             style={{ fontSize: "1.0rem" }}

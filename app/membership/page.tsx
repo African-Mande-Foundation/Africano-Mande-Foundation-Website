@@ -493,9 +493,9 @@ export default function Membership() {
                         className="flex items-start gap-4 p-2 rounded-md hover:bg-gray-50 transition-colors"
                       >
                         {imgSrc ? (
-                          <div className="w-20 h-14 overflow-hidden rounded-sm flex-shrink-0 bg-gray-100">
-                            <Image src={imgSrc} alt={n.title} width={80} height={56} className="object-cover" />
-                          </div>
+                          <div className="relative w-20  rounded-md overflow-hidden flex items-center justify-center bg-gray-100">
+                            <Image src={imgSrc} alt={n.title} width={112} height={80} className="object-cover w-full h-14" />
+                        </div>
                         ) : (
                           <div className="w-20 h-14 rounded-sm flex-shrink-0 bg-gray-100 flex items-center justify-center text-gray-400">
                             <ChartPie className="w-6 h-6" />
@@ -519,9 +519,9 @@ export default function Membership() {
                     <li key={n.slug ?? n.id} className="p-3 border rounded-md hover:shadow-sm transition-shadow duration-150">
                       <div className="flex items-start gap-4">
                       {imgSrc ? (
-                        <div className="relative w-20 h-14 rounded-md overflow-hidden flex-shrink-0 bg-gray-100">
+                        <div className="relative w-20  rounded-md overflow-hidden flex items-center justify-center bg-gray-100">
                           <a href={href}>
-                            <Image src={imgSrc} alt={n.title} width={112} height={80} className="object-cover" />
+                            <Image src={imgSrc} alt={n.title} width={112} height={80} className="object-cover w-full h-14" />
                           </a>
                         </div>
                       ) : (

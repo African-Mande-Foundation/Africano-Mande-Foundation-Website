@@ -42,7 +42,8 @@ const reverseFileFieldMapping: Record<string, string> = {
   recommendation_letter: 'recommendationLetter',
   cv: 'cv',
   identification_document: 'identificationDocument',
-  passport_photo: 'passportPhoto'
+  passport_photo: 'passportPhoto',
+  applicationForm:'application_form'
 };
 
 // GET - Load submitted application

@@ -64,7 +64,8 @@ const fileFieldMapping: Record<string, string> = {
   recommendationLetter: 'recommendation_letter',
   cv: 'cv',
   identificationDocument: 'identification_document',
-  passportPhoto: 'passport_photo'
+  passportPhoto: 'passport_photo',
+  applicationForm:'application_form'
 };
 
 // Helper function to upload ANY file as a regular file (no special image handling)

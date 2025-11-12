@@ -151,13 +151,18 @@ export default function VolunteerRequirements() {
       <div className="text-center">
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <Link href="/membership/volunteer">
-            <button className="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transform transition-all duration-300 hover:scale-105">
+            <button className="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transform transition-all duration-300 hover:scale-105 cursor-pointer">
               Back to Volunteer Page
             </button>
           </Link>
           <Link href="/membership/volunteer/apply">
-            <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105">
-              Proceed to Application
+            <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105 cursor-pointer">
+              Proceed to make online Application
+            </button>
+          </Link>
+          <Link href="/membership/volunteer/form-submission">
+            <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105 cursor-pointer">
+              Proceed to get Application Form
             </button>
           </Link>
         </div>

@@ -212,7 +212,13 @@ export default function Volunteer() {
               <Link href="/membership/volunteer/apply">
                 <button className="bg-[#dfefd2] text-[#032303] font-bold py-3 px-6 rounded-lg hover:bg-[#032303] hover:text-white transform transition-all duration-300 hover:scale-105 flex items-center">
                   <ArrowRight className="w-5 h-5 mr-2" />
-                  Apply Now
+                  Make an Online Application
+                </button>
+              </Link>
+              <Link href="/membership/volunteer/form-submission">
+                <button className="bg-[#dfefd2] text-[#032303] font-bold py-3 px-6 rounded-lg hover:bg-[#032303] hover:text-white transform transition-all duration-300 hover:scale-105 flex items-center">
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  Get Application Form
                 </button>
               </Link>
             </div>
@@ -320,12 +326,21 @@ export default function Volunteer() {
 
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             {statusInfo.canEdit && (
+              <>
               <Link href="/membership/volunteer/apply?edit=true">
                 <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105 flex items-center">
                   <FileText className="w-5 h-5 mr-2" />
-                  Edit Application
+                  Edit Online Application
                 </button>
               </Link>
+              <Link href="/membership/volunteer/form-submission?editform=true">
+                <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105 flex items-center">
+                  <FileText className="w-5 h-5 mr-2" />
+                  Edit Document Filled Application
+                </button>
+              </Link>
+              </>
+              
             )}
 
             {normalizedState === 'rejected' && (

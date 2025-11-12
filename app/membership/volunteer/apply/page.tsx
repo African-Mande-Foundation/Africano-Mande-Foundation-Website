@@ -24,7 +24,7 @@ interface UserData {
 }
 
 interface ApplicationData {
-  // Personal Details (removed fullName and email)
+
   birthDate: string;
   countryOfOrigin: string;
   addressOfOrigin: string;

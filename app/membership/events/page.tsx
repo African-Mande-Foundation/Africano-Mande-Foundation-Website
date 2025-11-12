@@ -265,7 +265,7 @@ export default function Events() {
   }
 
   return (
-    <div className="w-full p-4 max-w-7xl mx-auto">
+    <div className="w-full p-4 max-w-7xl mx-auto text-gray-700">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-black text-3xl font-bold mb-2">Events</h1>
@@ -275,22 +275,22 @@ export default function Events() {
       {/* Search and Filter */}
       <div className="mb-8 flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-700 w-5 h-5" />
           <input
             type="text"
             placeholder="Search events by title or location..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04663A] focus:border-transparent"
+            className="w-full pl-10 pr-4 py-3 border border-gray-700 text-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04663A] focus:border-transparent"
           />
         </div>
         
         <div className="relative">
-          <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-700 w-5 h-5" />
           <select
             value={filterState}
             onChange={(e) => setFilterState(e.target.value)}
-            className="pl-10 pr-8 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04663A] focus:border-transparent appearance-none bg-white min-w-[150px]"
+            className="pl-10 pr-8 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#04663A] focus:border-transparent appearance-none bg-white min-w-[150px] text-gray-700"
           >
             <option value="all">All Events</option>
             <option value="upcoming">Upcoming</option>

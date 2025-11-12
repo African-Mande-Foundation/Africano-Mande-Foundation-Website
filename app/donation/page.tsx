@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, Users, TreePine, GraduationCap, Building, ArrowRight, DollarSign, CheckCircle } from "lucide-react";
+import { Heart, Users, TreePine, GraduationCap, Building, ArrowRight, DollarSign, CheckCircle, Laptop, HeartPulse, Briefcase } from "lucide-react";
 import PaystackButtonInline from "@/app/components/PaystackButonInline";
 import type { PaymentPayload } from "@/lib/types";
 import Link from "next/link";
@@ -71,7 +71,45 @@ export default function PublicDonations() {
       color: "text-orange-600",
       bgColor: "bg-orange-50",
       amounts: [50, 150, 300, 1000]
+    },
+
+    {
+      id: "media-ict",
+      title: "Media and ICT Services",
+      description: "Empower communication and technology initiatives that inform, educate, and connect communities through media and digital innovation.",
+      icon: <Laptop className="w-6 h-6" />,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+      amounts: [25, 100, 250, 500]
+    },
+    {
+      id: "health",
+      title: "Health Program",
+      description: "Promote access to healthcare, awareness campaigns, and medical outreach programs that improve community well-being.",
+      icon: <HeartPulse className="w-6 h-6" />,
+      color: "text-red-600",
+      bgColor: "bg-red-50",
+      amounts: [50, 200, 500, 1000]
+    },
+    {
+      id: "volunteer",
+      title: "Volunteer Services",
+      description: "Support volunteer-driven initiatives that strengthen communities through education, mentorship, and civic engagement.",
+      icon: <Users className="w-6 h-6" />,
+      color: "text-green-600",
+      bgColor: "bg-green-50",
+      amounts: [10, 50, 100, 300]
+    },
+    {
+      id: "corporate",
+      title: "Corporate Service",
+      description: "Partner with AMF to provide professional and technical support that enhances organizational capacity and impact.",
+      icon: <Briefcase className="w-6 h-6" />,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
+      amounts: [100, 500, 1000, 2500]
     }
+
   ];
 
   const currentCategory = donationCategories.find(cat => cat.id === selectedCategory) || donationCategories[0];
