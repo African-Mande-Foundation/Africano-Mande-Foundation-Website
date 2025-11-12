@@ -336,9 +336,16 @@ export default function VolunteerApplication() {
     // Fetch the application form document from Strapi
     async function fetchForm() {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/volunteer-application-forms?populate=document`);
+        const headers: Record<string, string> = {};
+        if (session?.jwt) {
+          headers["Authorization"] = `Bearer ${session.jwt}`;
+        }
+
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/volunteer-application-forms?populate=document`,
+          { headers }
+        );
         const data = await res.json();
-        // Strapi v4: data.data[0].attributes.document.data.attributes.url
         const doc = data?.data?.[0]?.document?.url;
 
         console.log("Strapi form fetch:", doc);
@@ -524,12 +531,7 @@ export default function VolunteerApplication() {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center w-full mb-5 ">
-            <Link href="/membership/volunteer">
-                <button className="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transform transition-all duration-300 hover:scale-105 cursor-pointer">
-                Back to Volunteer Page
-                </button>
-            </Link>
+      <div className="flex flex-col md:flex-row items-center justify-center w-full mb-5 gap-2 ">
 
             {formUrl ? (
               <a
