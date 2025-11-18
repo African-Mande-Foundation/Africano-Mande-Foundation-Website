@@ -240,8 +240,8 @@ export default function ActivitiesPage() {
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 text-gray-700">
-      <div className="flex items-center justify-between mb-6">
+    <div className="w-full max-w-7xl p-4 text-gray-700">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">My Activities</h1>
         <div className="text-sm text-gray-500">Member dashboard • recent activity</div>
       </div>
@@ -309,12 +309,12 @@ export default function ActivitiesPage() {
               <div className="text-sm text-gray-500">Recent donations and analytics</div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="relative">
+            <div className="flex w-full flex-col md:flex-row items-center gap-2">
+              <div className="relative w-full">
                 <label htmlFor="donationsSearch" className="sr-only">Search donations</label>
                 <input
                   id="donationsSearch"
-                  className="pl-9 pr-3 py-2 border rounded-md w-64 text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline focus:ring-1 focus:ring-[#04663A] motion-reduce:transition-none"
+                  className="pl-9 pr-3 py-2 border rounded-md w-full md:w-72 text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline focus:ring-1 focus:ring-[#04663A] motion-reduce:transition-none"
                   placeholder="Search transaction or cause..."
                   value={donationsSearch}
                   onChange={(e) => {
@@ -376,7 +376,7 @@ export default function ActivitiesPage() {
               )}
 
               {/* pagination controls (client or server-driven) */}
-              <div className="mt-4 flex items-center justify-between">
+              <div className="mt-4 flex flex-col gap-2 md:flex-row items-center justify-between">
                 <div className="text-sm text-gray-500">
                   Showing {visibleDonations.length} donations
                   {typeof data?.donationsTotal === "number" ? ` • ${data.donationsTotal} total` : ""}
@@ -459,13 +459,13 @@ export default function ActivitiesPage() {
         {/* Events & Applications */}
         <div className="space-y-6">
           <div className="bg-white rounded-xl shadow-md p-6">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex flex-col md:flex-row w-full items-start gap-4 justify-between mb-4">
               <div>
                 <h2 className="text-lg font-semibold">My Events</h2>
                 <div className="text-sm text-gray-500">Upcoming & recent</div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex w-full items-center gap-2">
                 <label htmlFor="eventsSearch" className="sr-only">Search events</label>
                 <input
                   id="eventsSearch"
@@ -475,7 +475,7 @@ export default function ActivitiesPage() {
                     setEventsPage(1);
                   }}
                   placeholder="Search title or location..."
-                  className="pl-3 pr-2 py-2 border rounded text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline motion-reduce:transition-none"
+                  className="pl-3 pr-2 py-2 border rounded text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline motion-reduce:transition-none w-72"
                   aria-label="Search events"
                 />
               </div>
@@ -508,7 +508,7 @@ export default function ActivitiesPage() {
               <div className="text-gray-400">No events found.</div>
             )}
 
-            <div className="mt-4 flex items-center justify-between">
+            <div className="mt-4 flex-col md:flex-row flex items-center gap-2 justify-between">
               <div className="text-sm text-gray-500">
                 Showing {visibleEvents.length}
                 {typeof data?.eventsTotal === "number" ? ` • ${data.eventsTotal} total` : ""}
@@ -566,7 +566,7 @@ export default function ActivitiesPage() {
               <ul className="space-y-3">
                 {data.applications.map((app) => (
                   <li key={app.id} className="flex items-center justify-between gap-3 p-3 rounded-md hover:bg-gray-50 transition-colors duration-150 ease-in-out motion-reduce:transition-none">
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col md:flex-row items-start md:items-center justify-start gap-3">
                       <div className="w-10 h-10 rounded-md bg-purple-50 flex items-center justify-center text-purple-600" aria-hidden>
                         <UserCheck className="w-5 h-5" />
                       </div>

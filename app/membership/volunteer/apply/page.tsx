@@ -16,6 +16,7 @@ import {
   Send,
   CheckCircle
 } from "lucide-react";
+import Link from "next/link";
 
 interface UserData {
   firstName?: string;
@@ -650,6 +651,10 @@ export default function VolunteerApplication() {
           <li>Position you held</li>
           <li>Year of Employment</li>
         </ul>
+
+        <p className="text-sm text-gray-600 mb-4">
+          If you do not have any employment background, please indicate so.
+        </p>
         
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1063,15 +1068,15 @@ export default function VolunteerApplication() {
             }`}
           >
             {loading ? (
-              <>
+              <Link href="/membership/volunteer">
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                 <span>Submitting...</span>
-              </>
+              </Link>
             ) : (
-              <>
+              <Link href="/membership/volunteer" className="flex items-center justify-center gap-2">
                 <Send className="w-5 h-5" />
                 <span>{isEdit ? 'Update Application' : 'Submit Application'}</span>
-              </>
+              </Link>
             )}
           </button>
         ) : (

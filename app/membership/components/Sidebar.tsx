@@ -34,6 +34,7 @@ export default function Sidebar({
     { icon: HelpingHand, label: "Volunteer", href: "/membership/volunteer" },
     { icon: CalendarDays, label: "Events", href: "/membership/events" },
     { icon: UserCog, label: "Settings", href: "/membership/settings" },
+    
   ];
 
   return (

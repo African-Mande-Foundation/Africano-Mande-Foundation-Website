@@ -168,7 +168,7 @@ export default function Volunteer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <div className="bg-green-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-green-600" />
@@ -202,21 +202,21 @@ export default function Volunteer() {
 
           <div className="bg-gray-50 rounded-lg p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Ready to Get Started?</h2>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <div className="flex flex-col lg:flex-row gap-4 justify-center">
               <Link href="/membership/volunteer/requirements">
-                <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform transition-all duration-300 hover:scale-105 flex items-center">
+                <button className="bg-[#04663A] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#032303] transform w-full transition-all duration-300 hover:scale-105 flex items-center">
                   <FileText className="w-5 h-5 mr-2" />
                   View Requirements
                 </button>
               </Link>
               <Link href="/membership/volunteer/apply">
-                <button className="bg-[#dfefd2] text-[#032303] font-bold py-3 px-6 rounded-lg hover:bg-[#032303] hover:text-white transform transition-all duration-300 hover:scale-105 flex items-center">
+                <button className="bg-[#dfefd2] text-[#032303] font-bold py-3 px-6 rounded-lg hover:bg-[#032303] hover:text-white w-full transform transition-all duration-300 hover:scale-105 flex items-center">
                   <ArrowRight className="w-5 h-5 mr-2" />
                   Make an Online Application
                 </button>
               </Link>
               <Link href="/membership/volunteer/form-submission">
-                <button className="bg-[#dfefd2] text-[#032303] font-bold py-3 px-6 rounded-lg hover:bg-[#032303] hover:text-white transform transition-all duration-300 hover:scale-105 flex items-center">
+                <button className="bg-[#dfefd2] text-[#032303] font-bold py-3 px-6 rounded-lg hover:bg-[#032303] hover:text-white w-full transform transition-all duration-300 hover:scale-105 flex items-center">
                   <ArrowRight className="w-5 h-5 mr-2" />
                   Get Application Form
                 </button>
