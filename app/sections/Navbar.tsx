@@ -74,7 +74,7 @@ export default function Navbar({
   if (isAuthenticated) console.log(session.user?.image);
   return (
     <>
-      <div className="lg:hidden w-screen fixed h-20 z-50 bg-[#3b6907]">
+      <div className="lg:hidden w-screen fixed h-20 z-50 bg-[#005e84]">
         <div className="w-full h-full p-2 lg:px-10 items-center justify-between flex ">
           <div className="w-15 h-15 cursor-pointer">
             <Image
@@ -100,7 +100,7 @@ export default function Navbar({
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <div
-            className="absolute right-0 top-0 z-30 w-64 h-full bg-[#3b6907]"
+            className="absolute right-0 top-0 z-30 w-64 h-full bg-[#005e84]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="w-full h-full gap-y-5 flex flex-col p-2 items-center justify-start">
@@ -554,7 +554,7 @@ export default function Navbar({
                       </Link>
                       <Link
                         href="/login"
-                        className="w-full py-3 px-4 rounded-4xl bg-[#005e84] text-[#fff]"
+                        className="w-full py-3 px-4 rounded-4xl bg-[#fff] text-[#005e84]"
                       >
                         Login
                       </Link>
@@ -568,7 +568,7 @@ export default function Navbar({
       )}
 
       {/* Desktop Navbar */}
-      <div className="hidden lg:block fixed z-50 w-full h-30 bg-[#3b6907]">
+      <div className="hidden lg:block fixed z-50 w-full h-30 bg-[#005e84]">
         <div className="w-full h-full items-center justify-center gap-x-2 xl:gap-x-10 2xl:justify-center  flex">
           <div className="items-center justify-center flex flex-col text-sm border-0 border-amber-500 cursor-pointer gap-y-1">
             <Image
@@ -587,7 +587,7 @@ export default function Navbar({
           <div className=" items-center justify-center flex gap-x-1">
             <div className="dropdown ">
               <button
-                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
+                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#01a199] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
                 onClick={() => {
                   const el = document.getElementById("about-us");
                   if (el) {
@@ -655,7 +655,7 @@ export default function Navbar({
 
             <div className="dropdown ">
               <button
-                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
+                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#01a199] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
                 onClick={() => {
                   const el = document.getElementById("service-1");
                   if (el) {
@@ -786,7 +786,7 @@ export default function Navbar({
 
             <div className="dropdown ">
               <button
-                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
+                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#01a199] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
                 onClick={() => {
                   const el = document.getElementById("gallery");
                   if (el) {
@@ -847,7 +847,7 @@ export default function Navbar({
 
             <div className="dropdown ">
               <button
-                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
+                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#01a199] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
                 onClick={() => {
                   const el = document.getElementById("projects");
                   if (el) {
@@ -930,7 +930,7 @@ export default function Navbar({
 
             <div className="dropdown ">
               <button
-                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
+                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#01a199] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
                 onClick={() => {
                   const el = document.getElementById("location");
                   if (el) {
@@ -974,7 +974,7 @@ export default function Navbar({
 
             <div>
               <button
-                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#7eaf58] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
+                className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-white text-white cursor-pointer hover:bg-[#01a199] hover:text-[#032303] hover:border-[#032303] font-light text-xs xl:text-sm focus:outline-none transition-all duration-300 ease-in-out"
                 onClick={() => {
                   setShowContactModal(true);
                 }}
@@ -992,7 +992,7 @@ export default function Navbar({
                 {/* Dashboard Button */}
                 <Link
                   href="/membership"
-                  className="flex items-center xl:px-6 xl:py-2 px-3 py-2 rounded-4xl border border-[#005e84] bg-[#005e84] text-white cursor-pointer hover:bg-[#fff] hover:text-[#005e84] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out"
+                  className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-[#fff] bg-[#fff] text-[#005e84] cursor-pointer hover:bg-[#005e84] hover:text-[#fff] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out"
                 >
                   Go to Dashboard
                 </Link>
@@ -1025,13 +1025,13 @@ export default function Navbar({
               <>
                 <Link
                   href="/register"
-                  className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-[#fff] bg-[#fff] text-[#005e84] cursor-pointer hover:bg-[#005e84] hover:text-[#fff] hover:border-[#005e84] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out"
+                  className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-[#fff] bg-[#fff] text-[#005e84] cursor-pointer hover:bg-[#005e84] hover:text-[#fff] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out"
                 >
                   Become a Member
                 </Link>
                 <Link
                   href="/login"
-                  className="flex items-center xl:px-6 xl:py-2 px-3 py-2 rounded-4xl border border-[#005e84] bg-[#005e84] text-white cursor-pointer hover:bg-[#fff] hover:text-[#005e84] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out"
+                  className="flex items-center xl:px-4 xl:py-2 px-2 py-2 rounded-4xl border border-[#fff] bg-[#fff] text-[#005e84] cursor-pointer hover:bg-[#005e84] hover:text-[#fff] hover:border-[#fff] text-xs xl:text-base font-bold focus:outline-none transition-all duration-300 ease-in-out"
                 >
                   Log In
                 </Link>

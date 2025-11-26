@@ -64,7 +64,7 @@ body {
     font-weight: 500;
     font-size: 13px;
     border-bottom: 1px groove rgba(0, 0, 0, .1);
-    box-shadow: 5px 5px 2px #7eaf58;
+    box-shadow: 5px 5px 2px #01a199;
     transition: 0.5s ease;
     padding: 8px 15px;
     border-radius: 10px;
@@ -73,7 +73,7 @@ body {
 }
 .small-menu div:hover {
     color: #000 !important;
-    background: #7eaf58;
+    background: #01a199;
 }
 
 
