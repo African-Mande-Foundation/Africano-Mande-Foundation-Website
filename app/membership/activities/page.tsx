@@ -240,7 +240,7 @@ export default function ActivitiesPage() {
   }
 
   return (
-    <div className="w-full max-w-7xl p-4 text-gray-700">
+    <div className="w-full h-auto max-w-7xl p-4 text-gray-700">
       <div className="flex flex-col md:flex-row items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">My Activities</h1>
         <div className="text-sm text-gray-500">Member dashboard • recent activity</div>
@@ -457,7 +457,7 @@ export default function ActivitiesPage() {
         </div>
 
         {/* Events & Applications */}
-        <div className="space-y-6">
+        <div className="space-y-6 ">
           <div className="bg-white rounded-xl shadow-md p-6">
             <div className="flex flex-col md:flex-row w-full items-start gap-4 justify-between mb-4">
               <div>

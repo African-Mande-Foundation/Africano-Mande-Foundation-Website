@@ -125,7 +125,7 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
   }
 
   return (
-    <div className="w-screen min-h-screen md:h-screen flex items-start justify-between bg-gradient-to-b from-[#E6FFF4] from-60% to-white">
+    <div className="w-screen h-screen flex items-start justify-between bg-gradient-to-b from-[#E6FFF4] from-60% to-white">
       <Sidebar
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
@@ -137,12 +137,12 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
       </div>
 
       {isMobileMenuOpen ? (
-        <div className="w-3/4 lg:w-4/5 xl:w-6/7 h-full overflow-y-hidden hidden md:flex md:flex-col transition-all duration-700 ease-in-out">
+        <div className="w-3/4 lg:w-4/5 xl:w-6/7 h-full overflow-y-auto hidden md:flex md:flex-col transition-all duration-700 ease-in-out">
           <Navbar setIsMobileMenuOpen={setIsMobileMenuOpen} user={user!} />
           <div className="flex-1 overflow-y-scroll">{children}</div>
         </div>
       ) : (
-        <div className="w-full h-full hidden md:flex md:flex-col overflow-y-hidden transition-all duration-700 ease-in-out ">
+        <div className="w-full h-full hidden md:flex md:flex-col overflow-y-auto transition-all duration-700 ease-in-out ">
           <Navbar setIsMobileMenuOpen={setIsMobileMenuOpen} user={user!} />
           <div className="flex-1 overflow-y-scroll">{children}</div>
         </div>
