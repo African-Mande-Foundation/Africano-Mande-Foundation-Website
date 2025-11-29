@@ -15,7 +15,7 @@ export default function Home() {
   const [showDonateModal, setShowDonateModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   return (
-    <div className="bg-white w-auto h-auto">
+    <div className="bg-white w-auto h-auto overflow-y-scroll">
       <Navbar showContactModal={showContactModal}
         setShowContactModal={setShowContactModal}/>
       <Hero/>

@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased h-screen overflow-y-clip bg-red-500`}
+        className={`${poppins.variable} antialiased`}
       >
         <Providers>
         {children}
