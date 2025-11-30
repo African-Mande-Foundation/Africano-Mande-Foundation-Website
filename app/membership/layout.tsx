@@ -131,18 +131,18 @@ export default function MembershipLayout({ children }: MembershipLayoutProps) {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         user={user!}
       />
-      <div className="w-full h-full overflow-y-auto flex flex-col md:hidden transition-all duration-700 ease-in-out">
+      <div className="w-full h-full flex flex-col md:hidden transition-all duration-700 ease-in-out">
         <Navbar setIsMobileMenuOpen={setIsMobileMenuOpen} user={user!} />
         <div className="flex-1 overflow-y-scroll">{children}</div>
       </div>
 
       {isMobileMenuOpen ? (
-        <div className="w-3/4 lg:w-4/5 xl:w-6/7 h-full overflow-y-auto hidden md:flex md:flex-col transition-all duration-700 ease-in-out">
+        <div className="w-3/4 lg:w-4/5 xl:w-6/7 h-full hidden md:flex md:flex-col transition-all duration-700 ease-in-out">
           <Navbar setIsMobileMenuOpen={setIsMobileMenuOpen} user={user!} />
           <div className="flex-1 overflow-y-scroll">{children}</div>
         </div>
       ) : (
-        <div className="w-full h-full hidden md:flex md:flex-col overflow-y-auto transition-all duration-700 ease-in-out ">
+        <div className="w-full h-full hidden md:flex md:flex-col transition-all duration-700 ease-in-out ">
           <Navbar setIsMobileMenuOpen={setIsMobileMenuOpen} user={user!} />
           <div className="flex-1 overflow-y-scroll">{children}</div>
         </div>

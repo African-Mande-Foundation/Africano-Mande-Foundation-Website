@@ -235,12 +235,14 @@ export default function ActivitiesPage() {
     const a = document.createElement("a");
     a.href = url;
     a.download = `donations_${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
 
   return (
-    <div className="w-full h-auto max-w-7xl p-4 text-gray-700">
+    <div className="w-full max-w-7xl mx-auto p-4 text-gray-700">
       <div className="flex flex-col md:flex-row items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">My Activities</h1>
         <div className="text-sm text-gray-500">Member dashboard • recent activity</div>
@@ -309,12 +311,12 @@ export default function ActivitiesPage() {
               <div className="text-sm text-gray-500">Recent donations and analytics</div>
             </div>
 
-            <div className="flex w-full flex-col md:flex-row items-center gap-2">
-              <div className="relative w-full">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <div className="relative flex-1 sm:max-w-xs">
                 <label htmlFor="donationsSearch" className="sr-only">Search donations</label>
                 <input
                   id="donationsSearch"
-                  className="pl-9 pr-3 py-2 border rounded-md w-full md:w-72 text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline focus:ring-1 focus:ring-[#04663A] motion-reduce:transition-none"
+                  className="pl-9 pr-3 py-2 border rounded-md w-full text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline focus:ring-1 focus:ring-[#04663A] motion-reduce:transition-none"
                   placeholder="Search transaction or cause..."
                   value={donationsSearch}
                   onChange={(e) => {
@@ -328,7 +330,7 @@ export default function ActivitiesPage() {
 
               <button
                 onClick={() => downloadCsv()}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded-md text-sm hover:bg-green-700 transition-colors duration-150 ease-in-out motion-reduce:transition-none"
+                className="inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white rounded-md text-sm hover:bg-green-700 transition-colors duration-150 ease-in-out motion-reduce:transition-none whitespace-nowrap"
                 aria-label="Export donations to CSV"
                 type="button"
               >
@@ -339,7 +341,7 @@ export default function ActivitiesPage() {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               {loading ? (
                 <div className="space-y-3">
                   <div className="h-10 bg-gray-100 rounded animate-pulse" />
@@ -376,13 +378,13 @@ export default function ActivitiesPage() {
               )}
 
               {/* pagination controls (client or server-driven) */}
-              <div className="mt-4 flex flex-col gap-2 md:flex-row items-center justify-between">
+              <div className="mt-4 flex flex-col sm:flex-row gap-2 items-center justify-between">
                 <div className="text-sm text-gray-500">
                   Showing {visibleDonations.length} donations
                   {typeof data?.donationsTotal === "number" ? ` • ${data.donationsTotal} total` : ""}
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap justify-center">
                   <label htmlFor="donationsPageSize" className="sr-only">Donations page size</label>
                   <select
                     id="donationsPageSize"
@@ -459,13 +461,13 @@ export default function ActivitiesPage() {
         {/* Events & Applications */}
         <div className="space-y-6 ">
           <div className="bg-white rounded-xl shadow-md p-6">
-            <div className="flex flex-col md:flex-row w-full items-start gap-4 justify-between mb-4">
+            <div className="flex flex-col sm:flex-row items-start gap-4 justify-between mb-4">
               <div>
                 <h2 className="text-lg font-semibold">My Events</h2>
                 <div className="text-sm text-gray-500">Upcoming & recent</div>
               </div>
 
-              <div className="flex w-full items-center gap-2">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <label htmlFor="eventsSearch" className="sr-only">Search events</label>
                 <input
                   id="eventsSearch"
@@ -475,7 +477,7 @@ export default function ActivitiesPage() {
                     setEventsPage(1);
                   }}
                   placeholder="Search title or location..."
-                  className="pl-3 pr-2 py-2 border rounded text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline motion-reduce:transition-none w-72"
+                  className="pl-3 pr-2 py-2 border rounded text-sm transition-shadow duration-150 ease-in-out focus:shadow-outline motion-reduce:transition-none w-full sm:w-72"
                   aria-label="Search events"
                 />
               </div>
@@ -508,13 +510,13 @@ export default function ActivitiesPage() {
               <div className="text-gray-400">No events found.</div>
             )}
 
-            <div className="mt-4 flex-col md:flex-row flex items-center gap-2 justify-between">
+            <div className="mt-4 flex flex-col sm:flex-row items-center gap-2 justify-between">
               <div className="text-sm text-gray-500">
                 Showing {visibleEvents.length}
                 {typeof data?.eventsTotal === "number" ? ` • ${data.eventsTotal} total` : ""}
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap justify-center">
                 <select
                   value={eventsPageSize}
                   onChange={(e) => {
@@ -553,9 +555,12 @@ export default function ActivitiesPage() {
 
           {/* Applications */}
           <div className="bg-white rounded-xl shadow-md p-6">
-            <div className="flex items-start justify-between mb-4">
-              <h2 className="text-lg font-semibold">Volunteer Applications</h2>
-              <div className="text-sm text-gray-500">Status overview</div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h2 className="text-lg font-semibold">Volunteer Applications</h2>
+                <div className="text-sm text-gray-500 sm:hidden">Status overview</div>
+              </div>
+              <div className="hidden sm:block text-sm text-gray-500">Status overview</div>
             </div>
 
             {loading ? (
