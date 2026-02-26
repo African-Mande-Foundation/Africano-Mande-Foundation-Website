@@ -169,8 +169,8 @@ export default function PublicDonations() {
   const finalAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
 
   return (
-    <div className="bg-white">
-    <div className=" bg-white text-gray-600 w-full p-4 max-w-6xl mx-auto overflow-y-scroll">
+    <div className="bg-white overflow-y-scroll hidden-scrollbar h-screen">
+    <div className=" bg-white text-gray-600 w-full p-4 max-w-6xl mx-auto ">
         <Link 
             href="/"
             className="text-[#04663A] hover:text-[#035530] font-medium"
